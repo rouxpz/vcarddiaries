@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+{% load staticfiles %}
+<meta charset="UTF-8">
+<title>The V-Card Diaries</title>
+<!--     <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}"/> -->
+    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+    <link rel="shortcut icon" type="image/png" href="{% static "favicon.ico"%}"/>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <script src="{% static "js/d3.min.js" %}"></script>
+    <script src="{% static "js/typewriter.js" %}"></script>
+
+</head>
+
+<body>
+
+<!-- 	buttons smaller -->
+<header>
+</header>
+<!-- <div id="mainContent"> -->
+
+<img src="{% static "img/cherry.jpg" %}" class="image"/>
+<!-- <left> -->
+<div id="rightContent">
+	<div id = "siteName">the v-card diaries</div>
+<div id="virginity">VIRGINITY:</div>
+<div id="typewriter"></div>
+
+<div id="tales">tales of sexual debuts and deferrals</div><br/><br/>
+<a href="/stories"><div class="enterButton">ENTER</div></a>
+<!-- </div> -->
+<!-- </left> -->
+
+</div>
+<br class="clear">
+<footer>
+</footer>
+<script src="{% static "js/typewriter.js" %}"></script>
+
+</body>
+
+</html>

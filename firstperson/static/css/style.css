@@ -1,0 +1,466 @@
+/**************************************************
+			      Global styles
+***************************************************/
+
+html, body {
+    font-family: "Franklin Gothic Book", Arial, sans-serif;
+    font-size: 16px;
+	background: #ffffff;
+	background-repeat: repeat;
+   	width:100%;
+    margin:0;
+   	/*background-attachment: fixed;*/
+	}
+	
+#header{
+    /*padding-top: 0px;*/
+    height:100px;
+    background:#595959;
+    /*width:auto;*/
+    margin-bottom:10px;
+    padding-top: 20px;
+    padding-left: 20px;
+    font-weight: 100;
+
+}
+
+.clearFloat { 
+    clear: both;
+} 
+
+.container {
+    float:left;
+/*    padding: 0;*/
+/*    position: relative;*/
+    margin-right: 15px;
+    height:500px;
+    width:80%;
+    min-width: 380px !important;
+    max-height:500px;
+/*    background-color: #595959;*/
+}
+
+.content {
+    margin:25px;
+}
+
+.right {
+    float:right;
+    display:inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: -50px;
+    padding:0;
+    position:relative;
+}
+
+svg{
+    float:left;
+    margin-left: 10px;
+
+}
+
+#canvas {
+    /*background-color: #FDF6F7;*/
+}
+
+#mainContent{
+	width: 100%;
+/*	margin-left: 150;*/
+}
+
+#selected-tags {
+text-align: right;
+}
+
+@font-face {
+    font-family: 'PermanentMarker';
+    src: url('/static/css/font/PermanentMarker.ttf') format("truetype")
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h1{
+    display:inline;
+/*	width: 800px;*/
+	font-family: 'FranklinGothic',georgia, serif;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+    color:#ffffff;
+    margin: 0px !important;
+    padding-top: 20px;
+}
+
+h2 {
+    font-size: 25px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.circles{
+	float: left;
+	width: 500px;
+    position: relative;
+    top: 5px;
+}
+
+.clear{
+	clear: both;
+}
+
+.nameInfo {
+   font-family: "Franklin Gothic Medium", Arial;
+    color:black;
+    font-size:18px; 
+}
+
+#title {
+/*    font-family: 'Franklin Gothic Book',georgia, serif;*/
+    font-family: 'PermanentMarker',georgia, serif;
+    font-size: 20px;
+    color:#cd1d38;
+    width:90%;
+}
+
+#story {
+    font-family: "Franklin Gothic Book", Arial;
+    color:black;
+    font-size:16px;
+}
+
+#name {
+    font-family: "Franklin Gothic Medium", Arial;
+    font-size: 18px;
+    color:#cd1d38;
+}
+
+#count {
+
+}
+
+h3 {
+    margin-bottom: 10px;
+    margin-top:0px; 
+    padding-top: 10px;
+    color:white;
+
+}
+
+#tags {
+	-webkit-column-count: 4; /* Chrome, Safari, Opera */
+    -moz-column-count: 4; /* Firefox */
+    column-count: 4;
+    padding-top: 10px;
+    list-style-type: none;
+}
+
+#demographics {
+	-webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-width: 2; /* Firefox */
+    column-width: 2;
+    padding-top: 10px;
+    list-style-type: none;
+}
+
+#textentry {
+	-webkit-column-width: 340px; /* Chrome, Safari, Opera */
+    -moz-column-width: 300px; /* Firefox */
+    column-width: 300px;
+    padding-top: 10px;
+    list-style-type: none;
+}
+
+li, ul {
+	margin-top: 0;
+	padding-left:0px;
+	list-style-type: none;
+/*	display: inline;*/
+}
+
+#close, #next, strong {
+    color:#cd1d38;
+    text-decoration: none;
+}
+
+#next, #close {
+    float:right;
+    margin-right: 0px !important;
+}
+
+#close {
+    display:inline-block;
+}
+
+em {
+    color:#595959;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+#clear {
+    color:#595959;
+    text-decoration: none;
+    text-align: center;
+/*    margin-right: 20px;
+    font-size: 16px;*/
+}
+
+#clear:hover {
+    color:#cd1d38;
+}
+
+#submit, #home, #film {
+    display:inline-block;
+    margin-right:10px;
+    margin-top:15px;
+}
+
+#submit-button, #home-button, #film-button {
+    background-color:#7a7a7a;
+    -moz-border-radius:26px;
+    -webkit-border-radius:26px;
+    border-radius:26px;
+    border:1px solid #ffffff;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:"Franklin Gothic Book", Arial, Helvetica;
+    font-size:16px;
+/*    font-weight:bold;*/
+    padding:15px;
+    min-width: 160px;
+/*    min-height: 25px;*/
+    margin-top:0px;
+    text-align: center;
+    text-decoration:none;
+
+}
+
+#submit-button:hover {
+     background: #2c2c2c;
+}
+
+#film-button:hover {
+     background: #2c2c2c;
+}
+
+#home-button:hover {
+     background: #2c2c2c;
+}
+
+.grey-btn {
+    display: block;
+    float:right;
+    margin:10 10 10 10px;
+    width:100px;
+    height:20px;
+    font-family: "Franklin Gothic Medium", Arial;
+    cursor:pointer;
+    padding-right:100px;
+    vertical-align: middle;
+    text-decoration: none;
+    text-align:center;
+}
+
+#storyinfo {
+    margin-top: 0px !important;
+    margin-left: 15px;
+    display:inline-block;
+    vertical-align: top;
+    width:85%;
+}
+
+.category {
+    background-color:#cd1d38;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:0px solid #d83526;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:"Franklin Gothic Book", Arial, Helvetica;
+    font-size:14px;
+/*    font-weight:bold;*/
+    padding:6px;
+    min-width: 175px;
+    margin-top:2px;
+    text-align: center;
+    text-decoration:none;
+
+}
+
+.category:hover {
+
+    background-color:#660E1C;
+    color:white;
+}
+
+
+a {
+    color:#cd1d38;
+    font-family: "Franklin Gothic Medium";
+    text-decoration: none;
+    font-size: 14px;
+}
+
+a:hover{
+    color:#660E1C;
+}
+
+.vis {
+    fill:#000000;
+}
+
+.vis:hover {
+    fill:#cd1d38 !important;
+}
+
+#nav {
+    height:60px;
+    width:80%;
+    display:block;
+    margin-bottom: 5px;
+    margin-left: 5px;
+/*    bottom:0;
+    margin:10px;*/
+}
+
+.btn {
+    display: block;
+    float:right;
+    margin:10 10 10 10px;
+    width:100px;
+    height:20px;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: "Franklin Gothic Medium", Arial;
+    cursor:pointer;
+    /*color:black;*/
+/*    font-size: 17px;*/
+    background: #cd1d38;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    text-align:center;
+}
+
+.btn:hover {
+   /* background: #E17788;*/
+    opacity: 0.7;
+    text-decoration: none;
+}
+
+#strong-text {
+    font-family: 'PermanentMarker',georgia, serif;
+    color:#595959;
+    margin-bottom:0px;
+}
+
+
+.black_overlay{
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index:1001;
+    -moz-opacity: 0.8;
+    opacity:.80;
+/*    filter: alpha(opacity=80);*/
+}
+.white_content {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    right:10%;
+    width: 75%;
+    height: 75%;
+    padding: 15px;
+    border: 5px solid #cd1d38;
+    background-color: white;
+    z-index:1002;
+    overflow: auto;
+}
+
+#searchButton, #submitButton {
+    display: block;
+    margin:10 10 10 10px;
+    width:60px;
+    height:20px;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: "Franklin Gothic Medium", Arial;
+    cursor:pointer;
+    background: #595959;
+/*    padding: 10px 20px 10px 20px;*/
+    text-decoration: none;
+    text-align:center;
+    border:0;
+    color:white;
+    text-decoration: none;
+/*    text-align: center;
+/*    margin-right: 20px;*/
+    font-size: 12px;
+}
+
+#searchButton {
+    float:right;
+}
+
+#searchButton:hover {
+/*    opacity: 0.7;*/
+    background-color: #2c2c2c;
+    text-decoration: none;
+}
+
+#submitButton:hover {
+/*    opacity: 0.7;*/
+    background-color: #2c2c2c;
+    text-decoration: none;
+}
+
+p {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding:0px;
+}
+
+.footer {
+    color:white;
+    text-align: center;
+    font-size: 14px;
+/*    position: relative;*/
+    padding-top: 20px;
+    padding-bottom:10px;
+    background-color: #595959;
+    height: 25%;
+/*    margin-top: 510px;*/
+    bottom:0;
+}
+
+.footer-text {
+    color:#FFE066;
+}
+
+.footer-text:hover {
+    color:#cd1d38;
+}
+
+.social {
+    padding-left:3px;
+    padding-right:3px;
+}
+
+.social:hover {
+    opacity:0.4;
+}
+
+.fineprint {
+    font-size: 12px;
+}

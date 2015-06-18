@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load staticfiles %}
+	<title>The V-Card Diaries</title>
+	<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}"/>
+    <link rel="shortcut icon" type="image/png" href="{% static "favicon.ico"%}"/>
+    <script src="{% static "js/d3.min.js" %}"></script>
+    <script src="{% static "js/jquery-1.11.3.min.js" %}"></script>
+    <script>
+        $(document).ready(function(){
+        $("#theme").click(function(){
+            $("#theme-tags").toggle("fast");
+        });
+        $("#sexuality").click(function(){
+            $("#sexuality-tags").toggle("fast");
+        });
+        $("#demographic").click(function(){
+            $("#demographic-tags").toggle("fast");
+        });
+        $("#experience").click(function(){
+            $("#experience-tags").toggle("fast");
+        });
+
+        var circle = d3.selectAll("circle");
+        var canvas = $("#canvas");
+        circle.transition().attr("cx", function() { return Math.random() * (800-30) + 30; }).attr("cy", function() { return Math.random() * (450-30) + 30; }).ease("elastic").duration("1500").style("opacity", 1.0);
+    });
+    </script>
+</head>
+
+<!-- share buttons on stories - facebook, twitter, tumblr, email, reddit -->
+<!-- email notifications on posting  -->
+
+<body>
+<!--     Header -->
+	<div id="header">
+        <h1> the v-card diaries</h1>
+        <div class="grey-btn" id="film">
+            <a href="http://virginitymovie.com" id="film-button">go to film</a>
+        </div>
+        <div class="grey-btn" id="submit">
+            <a href="/stories/submit/" id="submit-button">contribute your story</a>
+        </div>
+        <a href="/"><h3>tales of sexual debuts and deferrals</h3></a>
+    </div>
+
+    <div id="nav">
+    <img src="{% static "img/cherry.jpg" %}" width="55"></img>
+    <span id="storyinfo"></span>
+    </div>
+
+    <div class="container">
+        {% if all_stories %}
+
+            <svg id="canvas" width="1000" height="500"
+                viewBox="0 0 1000 500"
+                preserveAspectRatio="xMidYMid meet">
+            {% for story in all_stories %}
+                
+               <a class = "story" href="javascript:void(0)"><circle id="{{story.id}}" class="vis" cx="40" cy="60" r="5" style="opacity:0;"></circle></a>
+
+                
+            {% endfor %}
+
+            </svg>
+
+            </div>
+
+        {% else %}
+            <p>No stories are available.</p>
+        {% endif %}
+
+         <!--     Filter by tags -->
+    <div class="right">
+    <div id="strong-text"><h2>filter stories</h2></div>
+    <em>click on a category to expand<br>or type in your own search term</em><br><br>
+    <a href="javascript:void(0)" id = "clear">clear selected categories</a><br><br>
+    <input type="text" id="search" name="search for stories" maxlength="500"> <button type="button" id="searchButton">Search</button><br><br>
+
+        <a href="javascript:void(0)" class="category" id="theme">T H E M E S</a>
+        <div id='theme-tags' style="display:none">
+        <ul>
+        {% for tag in all_tags %}
+            {% if tag.tagtype == "Theme"%}
+                <li><a href="javascript:void(0)" class = "tag" id = "tag{{tag.id}}" onclick="tagFilter('tag{{tag.id}}')">{{ tag.name }}</li>
+            {%endif%}
+        {% endfor %}
+        </ul>
+        </div><br>
+
+        <a href="javascript:void(0)" class="category" id="sexuality">S E X U A L I T I E S</a>
+        <div id='sexuality-tags' style="display:none">
+        <ul>
+        {% for tag in all_tags %}
+            {% if tag.tagtype == "Sexuality"%}
+                <li><a href="javascript:void(0)" class = "tag" id = "tag{{tag.id}}" onclick="tagFilter('tag{{tag.id}}')">{{ tag.name }}</li>
+            {%endif%}
+        {% endfor %}
+        </ul>
+        </div><br>
+
+        <a href="javascript:void(0)" class="category" id="demographic">D E M O G R A P H I C S</a>
+        <div id='demographic-tags' style="display:none">
+        <ul>
+        {% for tag in all_tags %}
+            {% if tag.tagtype == "Demographic"%}
+                <li><a href="javascript:void(0)" class = "tag" id = "tag{{tag.id}}" onclick="tagFilter('tag{{tag.id}}')">{{ tag.name }}</li>
+            {%endif%}
+        {% endfor %}
+        </ul>
+        </div><br>
+
+        <a href="javascript:void(0)" class="category" id="experience">E X P E R I E N C E S</a>
+        <div id='experience-tags' style="display:none">
+        <ul>
+        {% for tag in all_tags %}
+            {% if tag.tagtype == "Experiences"%}
+                <li><a href="javascript:void(0)" class = "tag" id = "tag{{tag.id}}" onclick="tagFilter('tag{{tag.id}}')">{{ tag.name }}</li>
+            {%endif%}
+        {% endfor %}
+        </ul>
+        </div><br>
+
+    <br><br>
+
+    <div id="selected-tags"></div><br>
+    </div>
+
+    <div id="light" class="white_content">
+        <a href = "javascript:void(0)" id="close"><img src="{% static "img/close.png" %}" width="50"/></a>
+        <h2 id="title"></h2><br>
+        <p id="name"></p><br>
+<!--         <p id="place"></p><br> -->
+        <p id="story"></p><br><br>
+        <p id="count"></p><br><br><br>
+
+        <a href = "javascript:void(0)" id="back"><img src="{% static "img/left.png" %}" width="50"/></a>
+        <a href = "javascript:void(0)" id = "next"><img src="{% static "img/right.png" %}" width="50"/></a>
+    </div>
+
+        {% if all_stories %}
+
+            <script src="{% static "js/loadData.js" %}"></script>
+
+            {% for story in all_stories %}
+
+            <script>
+
+            var currentStory;
+
+            var selectedStories = [];
+
+            document.getElementById("{{story.id}}").onclick = function() {
+                console.log("{{story.id}}");
+                document.getElementById('light').style.display='block';
+                document.getElementById('fade').style.display='block';
+
+                if (document.getElementById("{{story.id}}").style.fill != "") {
+                    console.log("selected story clicked");
+                    for (var i = 0; i < ids.length; i++) {
+                        if (document.getElementById(ids[i]).style.fill != "") {
+                            selectedStories[selectedStories.length] = [ids[i], storytexts[i], names[i], titles[i]];
+                        }
+                    }
+
+                    console.log(selectedStories);
+
+                } else {
+                    for (var i = 0; i < ids.length; i++) {
+                        selectedStories[selectedStories.length] = [ids[i], storytexts[i], names[i], titles[i]];
+                    }
+                }
+
+                for (var i = 0; i < selectedStories.length; i++){
+                    if (selectedStories[i][0] == "{{story.id}}") {
+                        currentStory = i + 1;
+                        console.log(currentStory + ", " + i)
+                    }
+                }
+
+                document.getElementById("title").innerHTML = "{{story.title}}";
+                document.getElementById("story").innerHTML = "{{story.text}}";
+                document.getElementById("name").innerHTML = "By {{story.name}}";
+                document.getElementById("count").innerHTML = "Story " + currentStory + " of " + selectedStories.length;
+            }
+
+            document.getElementById("{{story.id}}").onmouseover = function() {
+                for (var i = 0; i < ids.length; i++) {
+                    if ("{{story.id}}".indexOf(ids[i]) > -1) {
+                        document.getElementById("storyinfo").innerHTML = "<h2 id=\"title\">" + titles[i] +  "</h2><p class=\"nameInfo\">" + names[i] + "</p></br>";
+                    } 
+                }
+            };
+
+            document.getElementById("{{story.id}}").onmouseout= function() {
+                document.getElementById("storyinfo").innerHTML = "";
+            };
+
+            </script>
+
+            {% endfor %}
+
+            <script src="{% static "js/storyWindow.js" %}"></script>
+            <script src="{% static "js/tags.js" %}"></script>
+        {% endif %}
+
+ <div id="fade" class="black_overlay"></div>
+ <div class="clearFloat"></div>
+    <footer class="footer">
+    <p>The interactive project <a href="http://vcarddiaries.com" class="footer-text">The V-Card Diaries</a> and the documentary <a href="http://virginitymovie.com" class="footer-text">How To Lose Your Virginity</a> are projects of <a href="http://www.trixiefilms.com" class="footer-text">Trixie Films</a>.
+    </p>Do you have questions about the project? <a href="http://virginitymovie.com/contact" class="footer-text">Contact us!</a><br><br>
+    <a href="https://www.facebook.com/VirginMovie"><img src="{% static "img/facebook.png" %}" width="30" class="social"></img></a>
+    <a href="https://twitter.com/vcarddiaries"><img src="{% static "img/twitter.png" %}" width="30" class="social"></img></a>
+    <a href="http://virgin.tumblr.com"><img src="{% static "img/tumblr.png" %}" width="30" class="social"></img>
+    <a href="http://vimeo.com/trixiefilms"><img src="{% static "img/vimeo.png" %}" width="30" class="social"></img>
+    <a href="http://www.youtube.com/channel/UClyU4GO14NFPnlpUWLmnX-Q"><img src="{% static "img/youtube.png" %}" width="30" class="social"></img>
+    <a href="http://pinterest.com/trixiefilms"><img src="{% static "img/pinterest.png" %}" width="30" class="social"></img></a>
+    <br><br><br>
+    <em style="color:white;">How To Lose Your Virginity and The V-Card Diaries ©2015 Trixie Films LLC</em>
+    </footer>
+</body>
+</html>
