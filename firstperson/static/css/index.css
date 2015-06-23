@@ -89,7 +89,7 @@ h1{
 
 @font-face {
     font-family: 'PermanentMarker';
-    src: url('/static/css/font/PermanentMarker.ttf') format("truetype")
+    src: url('/static/css/font/PermanentMarker.ttf') format("truetype");
     font-weight: normal;
     font-style: normal;
 
