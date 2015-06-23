@@ -41,9 +41,10 @@ def submit(request):
 
 		if form.is_valid():
 
-			form = form.save(commit = False)
-			form.text = django_wysiwyg.clean_html(form.text)
-			post = '#VirginityIs ' + form.definition
+			new_instance = form.save(commit = False)
+			new_instance.text = django_wysiwyg.clean_html(new_instance.text)
+			new_instance.save()
+			post = '#VirginityIs ' + new_instance.definition
 			api.PostUpdate(post)
 			# form.save()
 			return HttpResponse('Thank you for submitting!')
