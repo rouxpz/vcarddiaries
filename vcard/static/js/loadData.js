@@ -45,6 +45,10 @@ var json = new XMLHttpRequest();
 
                         tags[tags.length] = tag_list;
                         console.log(tag_list);
+
+                        for (var j = 0; j < storytexts.length; j++) {
+                            storytexts[j] = storytexts[j].replace('\n', '+').replace('\r', '+');
+                        }
                     }
                 }
             }
