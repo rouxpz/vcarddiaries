@@ -151,6 +151,15 @@
 
             var selectedStories = [];
 
+            document.getElementById("{{story.id}}").onmouseover = function() {
+                console.log("{{story.id}}");
+                for (var i = 0; i < ids.length; i++) {
+                    if ("{{story.id}}".indexOf(ids[i]) > -1) {
+                        document.getElementById("storyinfo").innerHTML = "<h2 id=\"title\">" + titles[i] +  "</h2><p class=\"nameInfo\">" + names[i] + "</p></br>";
+                    } 
+                }
+            };
+
             document.getElementById("{{story.id}}").onclick = function() {
                 console.log("{{story.id}}");
                 document.getElementById('light').style.display='block';
@@ -180,19 +189,10 @@
                 }
 
                 document.getElementById("title").innerHTML = "{{story.title}}";
-                document.getElementById("story").innerHTML = "text testing";
+                document.getElementById("story").innerHTML = "{{story.text}}";
                 document.getElementById("name").innerHTML = "By {{story.name}}";
                 document.getElementById("count").innerHTML = "Story " + currentStory + " of " + selectedStories.length;
             }
-
-            document.getElementById("{{story.id}}").onmouseover = function() {
-                console.log("{{story.id}}");
-                for (var i = 0; i < ids.length; i++) {
-                    if ("{{story.id}}".indexOf(ids[i]) > -1) {
-                        document.getElementById("storyinfo").innerHTML = "<h2 id=\"title\">" + titles[i] +  "</h2><p class=\"nameInfo\">" + names[i] + "</p></br>";
-                    } 
-                }
-            };
 
             document.getElementById("{{story.id}}").onmouseout= function() {
                 document.getElementById("storyinfo").innerHTML = "";
