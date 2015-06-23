@@ -144,7 +144,7 @@
             <script src="{% static "js/loadData.js" %}"></script>
 
             {% for story in all_stories %}
-
+            {% autoescape off %}
             <script>
 
             var currentStory;
@@ -179,7 +179,7 @@
                     }
                 }
 
-                var cleanedText = "{{story.text}}".replace("&lt;", "<").replace("&gt;", ">");
+                // var cleanedText = "{{story.text}}".replace("&lt;", "<").replace("&gt;", ">");
 
                 document.getElementById("title").innerHTML = "{{story.title}}";
                 document.getElementById("story").innerHTML = "{{story.text}}";
@@ -201,7 +201,7 @@
             };
 
             </script>
-
+            {% endautoescape %}
             {% endfor %}
 
             <script src="{% static "js/storyWindow.js" %}"></script>
