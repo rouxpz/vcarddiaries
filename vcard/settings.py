@@ -96,11 +96,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-TINYMCE_JS_URL = os.path.join(STATIC_ROOT, "static/js/tiny_mce/tiny_mce.js")
-TINYMCE_DEFAULT_CONFIG = {
-    'remove_linebreaks' : 'true',
-}
-
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ['EMAIL_ADDRESS']

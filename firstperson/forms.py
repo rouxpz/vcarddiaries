@@ -2,7 +2,6 @@ from django import forms
 from firstperson.models import Story, Tag
 from django.utils.translation import ugettext_lazy as _
 from django.forms import Textarea
-from tinymce.widgets import TinyMCE
 
 class StoryForm(forms.ModelForm):
 
@@ -22,5 +21,5 @@ class StoryForm(forms.ModelForm):
 		}
 		widgets = {
 			'definition' : Textarea(attrs={'cols': 70, 'rows': 5}),
-			'text' : TinyMCE(attrs={'cols': 100, 'rows': 20, 'id': 'storytext'}),
+			'text' : Textarea(attrs={'cols': 100, 'rows': 20, 'id': 'storytext'}),
 		}

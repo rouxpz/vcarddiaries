@@ -4,6 +4,8 @@ from firstperson.models import *
 from firstperson.forms import StoryForm
 from django.core import serializers
 
+import html5lib
+import django_wysiwyg
 import json
 import twitter
 import os
@@ -39,7 +41,8 @@ def submit(request):
 
 		if form.is_valid():
 
-			form = form.save(commit = True)
+			form = form.save(commit = False)
+			form.text = django_wysiwyg.clean_html(form.text)
 			post = '#VirginityIs ' + form.definition
 			api.PostUpdate(post)
 			# form.save()

@@ -6,10 +6,12 @@ django-tinymce==1.5.3
 django-toolbelt==0.0.1
 django-wysiwyg==0.7.1
 gunicorn==19.3.0
+html5lib==1.0b6
 oauthlib==0.7.2
 psycopg2==2.6.1
 python-twitter==2.2
 requests==2.7.0
 requests-oauthlib==0.5.0
+six==1.9.0
 static3==0.6.1
 wsgiref==0.1.2
