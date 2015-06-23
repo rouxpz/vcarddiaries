@@ -1,7 +1,6 @@
 from django.db import models
 from moderation import moderation
 from datetime import datetime
-from tinymce import models as tinymce_models
 
 # Create your models here.
 
@@ -355,7 +354,7 @@ class Story(models.Model):
 	state = models.CharField(max_length=2, choices=STATE_CHOICES, default="")
 	country = models.CharField(max_length=2, choices=COUNTRY_CHOICES, default="")
 	definition = models.TextField(max_length=130) # of virginity
-	text = tinymce_models.HTMLField()
+	text = models.TextField()
 
 	def __unicode__(self):
 		return self.definition

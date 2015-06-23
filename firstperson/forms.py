@@ -2,12 +2,14 @@ from django import forms
 from firstperson.models import Story, Tag
 from django.utils.translation import ugettext_lazy as _
 from django.forms import Textarea
+from tinymce.widgets import TinyMCE
 
 class StoryForm(forms.ModelForm):
 
 	demo_tags = forms.ModelMultipleChoiceField(queryset=Tag.objects.filter(tagtype="Demographic"), widget=forms.CheckboxSelectMultiple, label="tell us about yourself. it will help others find stories from people who share their experiences.")
 	sex_tags = forms.ModelMultipleChoiceField(queryset=Tag.objects.filter(tagtype="Sexuality"), widget=forms.CheckboxSelectMultiple)
 	theme_tags = forms.ModelMultipleChoiceField(queryset=Tag.objects.filter(tagtype="Theme"), widget=forms.CheckboxSelectMultiple, label="pick the most important themes in your story.")
+	text = forms.CharField(widget=TinyMCE(attrs={'cols': 100, 'rows': 20, 'id': 'storytext'}))
 
 	class Meta:
 		model = Story
@@ -20,6 +22,5 @@ class StoryForm(forms.ModelForm):
 			'text' : _('tell us your story (500 words max):'),
 		}
 		widgets = {
-			'text' : Textarea(attrs={'cols': 100, 'rows': 20, 'id': 'storytext'}),
 			'definition' : Textarea(attrs={'cols': 70, 'rows': 5}),
 		}
