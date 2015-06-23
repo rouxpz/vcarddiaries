@@ -18,7 +18,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['DJANGO_KEY']
+# SECRET_KEY = os.environ['DJANGO_KEY']
+SECRET_KEY = 'u83^3h=*ct0*29@$z=-%x64)gbs!@gz#mn0bq1@&f=)!awj29n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -96,10 +97,18 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+TINYMCE_JS_URL = os.path.join(STATIC_ROOT, "static/js/tiny_mce/tiny_mce.js")
+TINYMCE_DEFAULT_CONFIG = {
+    'remove_linebreaks' : 'true',
+}
+
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ['EMAIL_ADDRESS']
-EMAIL_HOST_PASSWORD = os.environ['EMAIL_PASSWORD']
+# EMAIL_HOST_USER = os.environ['EMAIL_ADDRESS']
+EMAIL_HOST_USER = 'craigsshoppingnetwork@gmail.com'
+# EMAIL_HOST_PASSWORD = os.environ['EMAIL_PASSWORD']
+EMAIL_HOST_PASSWORD = 'strobenetwork'
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = os.environ['EMAIL_ADDRESS']
+# DEFAULT_FROM_EMAIL = os.environ['EMAIL_ADDRESS']
+DEFAULT_FROM_EMAIL = 'craigsshoppingnetwork@gmail.com'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

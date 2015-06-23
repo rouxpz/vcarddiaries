@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     url(r'^api_definitions/$', 'firstperson.views.api_definitions'),
     url(r'^api_search/$', 'firstperson.views.api_search'),
     url(r'^api_tags/$', 'firstperson.views.api_tags'),
+    (r'^tinymce/', include('tinymce.urls')),
 )
