@@ -12,4 +12,5 @@ urlpatterns = patterns('',
     url(r'^$', TemplateView.as_view(template_name="index.html")),
     url(r'^stories/', include('firstperson.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^tinymce/', include('tinymce.urls')),
 )
