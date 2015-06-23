@@ -9,10 +9,15 @@ import twitter
 import os
 # Create your views here.
 
-api = twitter.Api(consumer_key=os.environ['TWITTER_CONSUMER_KEY'],
-	consumer_secret=os.environ['TWITTER_CONSUMER_SECRET'],
-	access_token_key=os.environ['TWITTER_ACCESS_TOKEN'],
-	access_token_secret=os.environ['TWITTER_ACCESS_SECRET'])
+# api = twitter.Api(consumer_key=os.environ['TWITTER_CONSUMER_KEY'],
+# 	consumer_secret=os.environ['TWITTER_CONSUMER_SECRET'],
+# 	access_token_key=os.environ['TWITTER_ACCESS_TOKEN'],
+# 	access_token_secret=os.environ['TWITTER_ACCESS_SECRET'])
+
+api = twitter.Api(consumer_key="BfytXot6RuJOysmod0EzqAhMZ",
+	consumer_secret="I91hJfXSDfoMzAhTcMwPfvGqqPmPTfzmj7lcPXS0dU4me1xAKH",
+	access_token_key="1534472840-rNDci8QvsY9RGLI1B9RxtPTi1SJG0ZkynLLZCIa",
+	access_token_secret="JMArFQpe7JkqG4LxWg8UVdqU4AVlfWPBVKqFMYa6LQ8zn"
 
 def storyindex(request):
 	all_stories = Story.objects.order_by('date')
