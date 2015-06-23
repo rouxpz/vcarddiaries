@@ -179,6 +179,8 @@
                     }
                 }
 
+                var cleanedText = "{{story.text}}".replace("&lt;", "<").replace("&gt;", ">");
+
                 document.getElementById("title").innerHTML = "{{story.title}}";
                 document.getElementById("story").innerHTML = "{{story.text}}";
                 document.getElementById("name").innerHTML = "By {{story.name}}";
