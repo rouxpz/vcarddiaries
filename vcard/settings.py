@@ -35,8 +35,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'moderation',
     'firstperson',
+    'moderation',
     'django_wysiwyg',
     'tinymce',
 )
