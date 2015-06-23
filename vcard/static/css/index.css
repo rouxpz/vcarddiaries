@@ -83,13 +83,13 @@ h1{
 }
 
 #virginity,#typewriter {
-	font-family: 'PermanentMarker',georgia, serif;
+	font-family: 'PermanentMarker', Helvetica, sans-serif;
 
 }
 
 @font-face {
     font-family: 'PermanentMarker';
-    src: url('/static/css/font/PermanentMarker.ttf') format("truetype")
+    src: url('/static/css/font/PermanentMarker.ttf') format("truetype");
     font-weight: normal;
     font-style: normal;
 
