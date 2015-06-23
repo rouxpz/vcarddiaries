@@ -55,6 +55,9 @@ ROOT_URLCONF = 'vcard.urls'
 
 WSGI_APPLICATION = 'vcard.wsgi.application'
 
+SITE_ID=1
+
+DJANGO_WYSIWYG_FLAVOR = "tinymce"
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
