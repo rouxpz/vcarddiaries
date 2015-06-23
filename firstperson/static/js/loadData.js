@@ -47,7 +47,7 @@ var json = new XMLHttpRequest();
                         console.log(tag_list);
 
                         for (var j = 0; j < storytexts.length; j++) {
-                            storytexts[j] = storytexts[j].trim();
+                            storytexts[j] = storytexts[j].replace('\r\n', '');
                             console.log(storytexts[j]);
                         }
                     }
