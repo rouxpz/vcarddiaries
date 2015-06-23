@@ -16,7 +16,8 @@ api = twitter.Api(consumer_key=os.environ['TWITTER_CONSUMER_KEY'],
 
 def storyindex(request):
 	all_stories = Story.objects.order_by('date')
-	all_tags = Tag.objects.order_by('pk')
+	# all_tags = Tag.objects.order_by('pk')
+	all_tags = Tag.objects.all()
 	# all_tags = story.tags.all()
 	context = {'all_stories': all_stories,
 			   'all_tags': all_tags,
