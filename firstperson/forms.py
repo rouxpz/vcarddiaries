@@ -9,7 +9,6 @@ class StoryForm(forms.ModelForm):
 	demo_tags = forms.ModelMultipleChoiceField(queryset=Tag.objects.filter(tagtype="Demographic"), widget=forms.CheckboxSelectMultiple, label="tell us about yourself. it will help others find stories from people who share their experiences.")
 	sex_tags = forms.ModelMultipleChoiceField(queryset=Tag.objects.filter(tagtype="Sexuality"), widget=forms.CheckboxSelectMultiple)
 	theme_tags = forms.ModelMultipleChoiceField(queryset=Tag.objects.filter(tagtype="Theme"), widget=forms.CheckboxSelectMultiple, label="pick the most important themes in your story.")
-	text = forms.CharField(widget=TinyMCE(attrs={'cols': 100, 'rows': 20, 'id': 'storytext'}))
 
 	class Meta:
 		model = Story
@@ -23,4 +22,5 @@ class StoryForm(forms.ModelForm):
 		}
 		widgets = {
 			'definition' : Textarea(attrs={'cols': 70, 'rows': 5}),
+			'text' : TinyMCE(attrs={'cols': 100, 'rows': 20, 'id': 'storytext'}),
 		}
