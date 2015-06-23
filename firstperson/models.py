@@ -10,12 +10,6 @@ class Definition(models.Model):
 	def __unicode__(self):
 		return self.text
 
-class Place(models.Model):
-	name = models.CharField(max_length = 200)
-
-	def __unicode__(self):
-		return self.name
-
 class Tag(models.Model):
 	name = models.CharField(max_length = 200)
 	tagtype = models.CharField(max_length = 200)
