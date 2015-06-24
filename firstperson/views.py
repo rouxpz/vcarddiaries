@@ -41,9 +41,7 @@ def submit(request):
 
 		if form.is_valid():
 
-			new_instance = form.save(commit = False)
-			new_instance.text = django_wysiwyg.clean_html(new_instance.text)
-			new_instance.save()
+			form = form.save(commit = True)
 			post = '#VirginityIs ' + new_instance.definition
 			api.PostUpdate(post)
 			# form.save()
