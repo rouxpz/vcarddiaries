@@ -185,14 +185,12 @@
                     if (selectedStories[i][0] == "{{story.id}}") {
                         currentStory = i + 1;
                         console.log(currentStory + ", " + i)
+                        document.getElementById("title").innerHTML = titles[i];
+                        document.getElementById("story").innerHTML = storytexts[i];
+                        document.getElementById("name").innerHTML = "By " + names[i];
+                        document.getElementById("count").innerHTML = "Story " + currentStory + " of " + selectedStories.length;
                     }
-                }
-
-
-                document.getElementById("title").innerHTML = "{{story.title}}";
-                document.getElementById("story").innerHTML = "{{story.text}}";
-                document.getElementById("name").innerHTML = "By {{story.name}}";
-                document.getElementById("count").innerHTML = "Story " + currentStory + " of " + selectedStories.length;
+                } 
             }
 
             document.getElementById("{{story.id}}").onmouseout= function() {
