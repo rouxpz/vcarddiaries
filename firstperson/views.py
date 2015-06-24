@@ -42,7 +42,7 @@ def submit(request):
 		if form.is_valid():
 
 			form = form.save(commit = True)
-			post = '#VirginityIs ' + new_instance.definition
+			post = '#VirginityIs ' + form.definition
 			api.PostUpdate(post)
 			# form.save()
 			return HttpResponse('Thank you for submitting!')
