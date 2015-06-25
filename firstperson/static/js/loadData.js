@@ -28,6 +28,7 @@ var json = new XMLHttpRequest();
                         var raw_demo_tags = myArr[i].fields.demo_tags;
                         var raw_sex_tags = myArr[i].fields.sex_tags;
                         var raw_theme_tags = myArr[i].fields.theme_tags;
+                        var raw_exp_tags = myArr[i].fields.experience_tags;
 
                         var tag_list = []
 
@@ -43,11 +44,15 @@ var json = new XMLHttpRequest();
                             tag_list[tag_list.length] = raw_theme_tags[j];
                         }
 
+                        for (var j = 0; j < raw_exp_tags.length; j++) {
+                            tag_list[tag_list.length] = raw_exp_tags[j];
+                        }
+
                         tags[tags.length] = tag_list;
                         console.log(tag_list);
 
                         for (var j = 0; j < storytexts.length; j++) {
-                            storytexts[j] = storytexts[j].replace('\r\n', '');
+                            storytexts[j] = storytexts[j].replace('\r\n', ' ');
                             console.log(storytexts[j]);
                         }
                     }
