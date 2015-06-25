@@ -53,7 +53,7 @@ var json = new XMLHttpRequest();
 
                         for (var j = 0; j < storytexts.length; j++) {
                             storytexts[j] = storytexts[j].replace('\r\n', ' ');
-                            console.log(storytexts[j]);
+                            // console.log(storytexts[j]);
                         }
                     }
                 }
