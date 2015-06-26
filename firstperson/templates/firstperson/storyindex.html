@@ -129,7 +129,7 @@
 
     <div id="light" class="white_content">
         <a href = "javascript:void(0)" id="close"><img src="{% static "img/close.png" %}" width="50"/></a>
-        <h2 id="title"></h2><br>
+        <h2 id="boxtitle"></h2><br>
         <p id="name"></p><br>
 <!--         <p id="place"></p><br> -->
         <p id="story"></p><br><br>
@@ -185,7 +185,7 @@
                     if (selectedStories[i][0] == "{{story.id}}") {
                         currentStory = i + 1;
                         console.log(currentStory + ", " + i)
-                        document.getElementById("title").innerHTML = titles[i];
+                        document.getElementById("boxtitle").innerHTML = titles[i];
                         document.getElementById("story").innerHTML = storytexts[i];
                         document.getElementById("name").innerHTML = "By " + names[i];
                         document.getElementById("count").innerHTML = "Story " + currentStory + " of " + selectedStories.length;

@@ -115,6 +115,14 @@ h2 {
     font-size:18px; 
 }
 
+#boxtitle {
+/*    font-family: 'Franklin Gothic Book',georgia, serif;*/
+    font-family: 'PermanentMarker',georgia, serif;
+    font-size: 25px;
+    color:#cd1d38;
+    width:90%;
+}
+
 #title {
 /*    font-family: 'Franklin Gothic Book',georgia, serif;*/
     font-family: 'PermanentMarker',georgia, serif;

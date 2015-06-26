@@ -41,6 +41,11 @@ document.getElementById("close").onclick = function() {
     document.getElementById("sexuality").value = "none";
     document.getElementById("demographic").value = "none";
 
+    document.getElementById("title").innerHTML = "";
+    document.getElementById("story").innerHTML = "";
+    document.getElementById("name").innerHTML = "";
+    document.getElementById("count").innerHTML = "";
+
     for (var i = 0; i < ids.length; i++) {
             document.getElementById(ids[i]).style.fill = "";
             document.getElementById(ids[i]).setAttribute("r", 5);

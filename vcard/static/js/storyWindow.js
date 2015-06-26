@@ -7,7 +7,7 @@ document.getElementById("next").onclick = function() {
 
     console.log(currentStory);
     
-    document.getElementById("title").innerHTML = selectedStories[currentStory - 1][3];
+    document.getElementById("boxtitle").innerHTML = selectedStories[currentStory - 1][3];
     document.getElementById("story").innerHTML = selectedStories[currentStory - 1][1];
     document.getElementById("name").innerHTML = "By " + selectedStories[currentStory - 1][2];
     document.getElementById("count").innerHTML = "Story " + (currentStory) + " of " + selectedStories.length;
@@ -22,7 +22,7 @@ document.getElementById("back").onclick = function() {
 
     console.log(currentStory);
     
-    document.getElementById("title").innerHTML = selectedStories[currentStory - 1][3];
+    document.getElementById("boxtitle").innerHTML = selectedStories[currentStory - 1][3];
     document.getElementById("story").innerHTML = selectedStories[currentStory - 1][1];
     document.getElementById("name").innerHTML = "By " + selectedStories[currentStory - 1][2];
     document.getElementById("count").innerHTML = "Story " + (currentStory) + " of " + selectedStories.length;
@@ -40,6 +40,11 @@ document.getElementById("close").onclick = function() {
     document.getElementById("theme").value = "none";
     document.getElementById("sexuality").value = "none";
     document.getElementById("demographic").value = "none";
+
+    document.getElementById("boxtitle").innerHTML = "";
+    document.getElementById("story").innerHTML = "";
+    document.getElementById("name").innerHTML = "";
+    document.getElementById("count").innerHTML = "";
 
     for (var i = 0; i < ids.length; i++) {
             document.getElementById(ids[i]).style.fill = "";
@@ -61,6 +66,11 @@ window.document.onkeydown = function(e) {
         document.getElementById("theme").value = "none";
         document.getElementById("sexuality").value = "none";
         document.getElementById("demographic").value = "none";
+
+        document.getElementById("boxtitle").innerHTML = "";
+        document.getElementById("story").innerHTML = "";
+        document.getElementById("name").innerHTML = "";
+        document.getElementById("count").innerHTML = "";
 
         for (var i = 0; i < ids.length; i++) {
             document.getElementById(ids[i]).style.fill = "";
