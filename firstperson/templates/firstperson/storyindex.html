@@ -184,7 +184,8 @@
                 for (var i = 0; i < selectedStories.length; i++){
                     if (selectedStories[i][0] == "{{story.id}}") {
                         currentStory = i + 1;
-                        console.log(currentStory + ", " + i)
+                        console.log(selectedStories[i][0]);
+                        console.log("{{story.id}}");
                         document.getElementById("boxtitle").innerHTML = titles[i];
                         document.getElementById("story").innerHTML = storytexts[i];
                         document.getElementById("name").innerHTML = "By " + names[i];
