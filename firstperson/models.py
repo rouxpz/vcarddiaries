@@ -342,7 +342,7 @@ class Story(models.Model):
 				)
 
 	name = models.CharField(max_length = 100)
-	title = models.CharField(max_length=200, default="")
+	title = models.CharField(max_length=200, default="<New Submission>")
 	email = models.EmailField()
 	age = models.CharField(max_length=3, choices=AGE_CHOICES)
 	date = models.DateTimeField(default=datetime.now, blank=True)
@@ -357,7 +357,7 @@ class Story(models.Model):
 	text = models.TextField()
 
 	def __unicode__(self):
-		return self.definition
+		return self.title
 
 	class Meta:
 		verbose_name_plural = 'Stories'
