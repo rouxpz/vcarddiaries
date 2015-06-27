@@ -33,6 +33,14 @@
 <!-- email notifications on posting  -->
 
 <body>
+        <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=460809960747846";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 <!--     Header -->
 	<div id="header">
         <h1> the v-card diaries</h1>
@@ -131,6 +139,12 @@
         <h2 id="boxtitle"></h2><br>
         <p id="name"></p><br>
 <!--         <p id="place"></p><br> -->
+<!--         share buttons -->
+        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button"></div>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text='document.getElementById("title").innerHTML' data-via="VCardDiaries" data-count="none" data-hashtags="VirginityIs">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        <br><br>
+
         <p id="story"></p><br><br> 
         <p id="count"></p><br><br><br>
 
@@ -168,7 +182,7 @@
                 document.getElementById('light').style.display='block';
                 document.getElementById('scrollbuttons').style.display='block';
                 document.getElementById('fade').style.display='block';
-                document.body.style.overflow='hidden';
+                document.getElementByClassName('container').style.overflow='hidden';
 
                 if (document.getElementById("{{story.id}}").style.fill != "") {
                     console.log("selected story clicked");
