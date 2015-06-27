@@ -48,13 +48,14 @@
         <p id="name"></p><br>
     <!--         <p id="place"></p><br> -->
     <!--         share buttons -->
-        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button"></div>
-        <a href="https://twitter.com/share" class="twitter-share-button" data-text='document.getElementById("title").innerHTML' data-via="VCardDiaries" data-count="none" data-hashtags="VirginityIs">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        <br><br>
 
         <p id="story"></p><br><br> 
         <p id="count"></p><br><br><br>
+
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fvcarddiaries.com" target="_blank"><img src="{% static "img/facebook-share.png" %}" width="30" class="social"></img></a>
+        <a href="https://twitter.com/intent/tweet?url=vcarddiaries.com&text=Stories of sexual debuts and deferrals&via=VCardDiaries" target="_blank"><img src="{% static "img/twitter-share.png" %}" width="30" class="social"></img></a>
+        <a href="http://www.tumblr.com/share/link?url=vcarddiaries.com&name=test&description=test" target="_blank"><img src="{% static "img/tumblr-share.png" %}" width="30" class="social"></img></a>
+        <a href="http://reddit.com/submit?url=http://vcarddiaries.com&title=test"><img src="{% static "img/reddit-share.png" %}" width="30" class="social"></img></a>
 
     </div>
 
@@ -233,7 +234,7 @@
 
         <script src="{% static "js/storyWindow.js" %}"></script>
         <script src="{% static "js/tags.js" %}"></script>
-        
+
     {% endif %}
 </body>
 </html>
