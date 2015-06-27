@@ -32,6 +32,8 @@ document.getElementById("close").onclick = function() {
     document.getElementById('light').style.display='none';
     document.getElementById('scrollbuttons').style.display='none';
     document.getElementById('fade').style.display='none';
+    document.body.style.overflow='auto';
+    
     allTags = [];
     selectedStories = [];
     allTagsText = [];
@@ -59,6 +61,8 @@ window.document.onkeydown = function(e) {
         document.getElementById('light').style.display='none';
         document.getElementById('scrollbuttons').style.display='none';
         document.getElementById('fade').style.display='none';
+        document.body.style.overflow='auto';
+
         allTags = [];
         selectedStories = [];
         allTagsText = [];
