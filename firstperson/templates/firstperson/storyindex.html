@@ -33,40 +33,10 @@
 <!-- email notifications on posting  -->
 
 <body>
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=460809960747846";
-      fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-<!--     Header -->
-
-    <div id="light" class="white_content">
-        <h2 id="boxtitle"></h2><br>
-        <p id="name"></p><br>
-    <!--         <p id="place"></p><br> -->
-    <!--         share buttons -->
-
-        <p id="story"></p><br><br> 
-        <p id="count"></p><br>
-
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fvcarddiaries.com" target="_blank"><img src="{% static "img/facebook-share.png" %}" width="30" class="social"></img></a>
-        <a href="https://twitter.com/intent/tweet?url=vcarddiaries.com&text=Stories of sexual debuts and deferrals&via=VCardDiaries" target="_blank"><img src="{% static "img/twitter-share.png" %}" width="30" class="social"></img></a>
-        <a href="http://www.tumblr.com/share/link?url=vcarddiaries.com&name=test&description=test" target="_blank"><img src="{% static "img/tumblr-share.png" %}" width="30" class="social"></img></a>
-        <a href="http://reddit.com/submit?url=http://vcarddiaries.com&title=test"><img src="{% static "img/reddit-share.png" %}" width="30" class="social"></img></a>
-
-        <br><br>
-
-    </div>
-
-    <div id="fade" class="black_overlay"></div>
-
-
     <div id="fullbody">
+        <!--     Header -->
         <div id="header">
-            <h1> the v-card diaries</h1>
+            <a href="/"><h1> the v-card diaries</h1></a>
             <div class="grey-btn" id="film">
                 <a href="http://virginitymovie.com" id="film-button">go to film</a>
             </div>
@@ -156,6 +126,25 @@
 
             <div id="selected-tags"></div><br>
         </div>
+
+        <div id="light" class="white_content">
+            
+            <h2 id="boxtitle"></h2><br>
+            <p id="name"></p><br>
+
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fvcarddiaries.com" target="_blank"><img src="{% static "img/facebook-share.png" %}" width="30" class="social"></img></a>
+            <a href="https://twitter.com/intent/tweet?url=vcarddiaries.com&text=Stories of sexual debuts and deferrals&via=VCardDiaries" target="_blank"><img src="{% static "img/twitter-share.png" %}" width="30" class="social"></img></a>
+            <a href="http://www.tumblr.com/share/link?url=vcarddiaries.com&name=test&description=test" target="_blank"><img src="{% static "img/tumblr-share.png" %}" width="30" class="social"></img></a>
+            <a href="http://reddit.com/submit?url=http://vcarddiaries.com&title=test"><img src="{% static "img/reddit-share.png" %}" width="30" class="social"></img></a>
+
+            <br><br>
+
+            <p id="story"></p><br>
+            <p id="count"></p><br>
+
+        </div>
+        <div id="fade" class="black_overlay"></div>
+
 
         <div class="clearFloat"></div>
         <footer class="footer">
