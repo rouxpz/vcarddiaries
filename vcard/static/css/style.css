@@ -186,18 +186,38 @@ li, ul {
 /*	display: inline;*/
 }
 
+#scrollbuttons {
+    display: none;
+    position:fixed;
+    z-index:1003;
+    width: 100%;
+    height:100%;
+    top:0%;
+}
+
 #close, #next, strong {
     color:#cd1d38;
     text-decoration: none;
 }
 
-#next, #close {
+#next {
     float:right;
-    margin-right: 0px !important;
+    margin-right: 2% !important;
+    margin-top:20%;
+
+}
+
+#back {
+    float:left;
+    margin-left: 2% !important;
+    margin-top:20%;
 }
 
 #close {
+    float:right;
     display:inline-block;
+    margin-right: -7% !important;
+    margin-top:1%;
 }
 
 em {

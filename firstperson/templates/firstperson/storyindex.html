@@ -122,21 +122,24 @@
         </ul>
         </div><br>
 
-    <br><br>
+    <br>
 
     <div id="selected-tags"></div><br>
     </div>
 
-    <div id="light" class="white_content">
-        <a href = "javascript:void(0)" id="close"><img src="{% static "img/close.png" %}" width="50"/></a>
+        <div id="light" class="white_content">
         <h2 id="boxtitle"></h2><br>
         <p id="name"></p><br>
 <!--         <p id="place"></p><br> -->
-        <p id="story"></p><br><br>
+        <p id="story"></p><br><br> 
         <p id="count"></p><br><br><br>
 
-        <a href = "javascript:void(0)" id="back"><img src="{% static "img/left.png" %}" width="50"/></a>
-        <a href = "javascript:void(0)" id = "next"><img src="{% static "img/right.png" %}" width="50"/></a>
+    </div>
+
+    <div id="scrollbuttons">
+        <a href = "javascript:void(0)" id="back"><img src="{% static "img/left.png" %}" width="100"/></a>
+        <a href = "javascript:void(0)" id = "next"><img src="{% static "img/right.png" %}" width="100"/></a>
+        <a href = "javascript:void(0)" id="close"><img src="{% static "img/close.png" %}" width="75"/></a>
     </div>
 
         {% if all_stories %}
@@ -163,6 +166,7 @@
             document.getElementById("{{story.id}}").onclick = function() {
                 console.log("{{story.id}}");
                 document.getElementById('light').style.display='block';
+                document.getElementById('scrollbuttons').style.display='block';
                 document.getElementById('fade').style.display='block';
 
                 if (document.getElementById("{{story.id}}").style.fill != "") {

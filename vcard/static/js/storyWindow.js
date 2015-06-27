@@ -30,6 +30,7 @@ document.getElementById("back").onclick = function() {
 
 document.getElementById("close").onclick = function() {
     document.getElementById('light').style.display='none';
+    document.getElementById('scrollbuttons').style.display='none';
     document.getElementById('fade').style.display='none';
     allTags = [];
     selectedStories = [];
@@ -56,6 +57,7 @@ window.document.onkeydown = function(e) {
     if (!e) e = event;
     if (e.keyCode == 27) {
         document.getElementById('light').style.display='none';
+        document.getElementById('scrollbuttons').style.display='none';
         document.getElementById('fade').style.display='none';
         allTags = [];
         selectedStories = [];
