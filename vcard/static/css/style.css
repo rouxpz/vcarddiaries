@@ -209,7 +209,7 @@ li, ul {
 /*	display: inline;*/
 }
 
-#scrollbuttons {
+#scrollbuttons, #closeAbout {
     display: none;
     position:relative;
     z-index:1002;
