@@ -14,7 +14,7 @@ html, body {
 	
 #header{
     /*padding-top: 0px;*/
-    height:100px;
+    height:80px;
     background:#d6d6d6;
     /*width:auto;*/
     margin-bottom:10px;
@@ -246,14 +246,14 @@ em {
 }
 
 #submit-button, #home-button, #film-button {
-    background-color:#7a7a7a;
+    background-color:#ababab;
     -moz-border-radius:26px;
     -webkit-border-radius:26px;
     border-radius:26px;
-    border:1px solid #ffffff;
+    border:1px solid #black;
     display:inline-block;
     cursor:pointer;
-    color:#ffffff;
+    color:#black;
     font-family:"Franklin Gothic Book", Arial, Helvetica;
     font-size:16px;
 /*    font-weight:bold;*/
@@ -267,11 +267,11 @@ em {
 }
 
 #submit-button:hover {
-     background: #2c2c2c;
+     background: #7a7a7a;
 }
 
 #film-button:hover {
-     background: #2c2c2c;
+     background: #7a7a7a;
 }
 
 #home-button:hover {
