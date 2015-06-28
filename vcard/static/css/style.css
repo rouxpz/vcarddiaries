@@ -15,7 +15,7 @@ html, body {
 #header{
     /*padding-top: 0px;*/
     height:100px;
-    background:#595959;
+    background:#d6d6d6;
     /*width:auto;*/
     margin-bottom:10px;
     padding-top: 20px;
@@ -467,18 +467,18 @@ p {
 /*    position: relative;*/
     padding-top: 20px;
     padding-bottom:10px;
-    background-color: #595959;
+    background-color: #d6d6d6;
     height: 25%;
 /*    margin-top: 510px;*/
     bottom:0;
 }
 
 .footer-text {
-    color:#FFE066;
+    color:#cd1d38;
 }
 
 .footer-text:hover {
-    color:#cd1d38;
+    color:#FFE066;
 }
 
 .social {
