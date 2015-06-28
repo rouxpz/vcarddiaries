@@ -29,7 +29,6 @@
     </script>
 </head>
 
-<!-- share buttons on stories - facebook, twitter, tumblr, email, reddit -->
 <!-- email notifications on posting  -->
 
 <body>
@@ -128,7 +127,7 @@
         </div>
 
         <div id="light" class="white_content">
-            
+
             <h2 id="boxtitle"></h2><br>
             <p id="name"></p><br>
 
@@ -143,13 +142,17 @@
             <p id="count"></p><br>
 
         </div>
+
+        <div id="aboutWindow" class="white_content">
+        </div>
+
         <div id="fade" class="black_overlay"></div>
 
 
         <div class="clearFloat"></div>
         <footer class="footer">
             <p>The interactive project <a href="http://vcarddiaries.com" class="footer-text">The V-Card Diaries</a> and the documentary <a href="http://virginitymovie.com" class="footer-text">How To Lose Your Virginity</a> are projects of <a href="http://www.trixiefilms.com" class="footer-text">Trixie Films</a>.
-            </p>Do you have questions about the project? <a href="http://virginitymovie.com/contact" class="footer-text">Contact us!</a><br><br>
+            </p><a href="javascript:void(0)" id="about">More about this project.</a> Do you have questions? <a href="http://virginitymovie.com/contact" class="footer-text">Contact us!</a><br><br>
             <a href="https://www.facebook.com/VirginMovie"><img src="{% static "img/facebook.png" %}" width="30" class="social"></img></a>
             <a href="https://twitter.com/vcarddiaries"><img src="{% static "img/twitter.png" %}" width="30" class="social"></img></a>
             <a href="http://virgin.tumblr.com"><img src="{% static "img/tumblr.png" %}" width="30" class="social"></img>
@@ -161,6 +164,17 @@
         </footer>
 
     </div>
+
+    <script>
+
+    document.getElementById("about").onclick = function() {
+        document.getElementById('aboutWindow').style.display='block';
+        document.getElementById('scrollbuttons').style.display='block';
+        document.getElementById('fade').style.display='block';
+        document.body.style.overflow='hidden';
+    }
+
+    </script>
 
     {% if all_stories %}
 
