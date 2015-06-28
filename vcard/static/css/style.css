@@ -126,7 +126,7 @@ h2 {
    font-family: 'FrankGotMed', Arial;
     color:black;
     font-size:16px;
-    line-height: 98%;
+    line-height: 110%;
 }
 
 #boxtitle {
@@ -141,7 +141,7 @@ h2 {
 #title {
 /*    font-family: 'Franklin Gothic Book',georgia, serif;*/
     font-family: 'PermanentMarker',georgia, serif;
-    font-size: 20px;
+/*    font-size: 20px;*/
     color:#cd1d38;
     width:90%;
     line-height: 95%;
@@ -298,9 +298,9 @@ li, ul {
 .grey-btn {
     display: block;
     float:right;
-    margin:5 10 15px;
+/*    margin:5 10 15px;*/
     width:100px;
-    height:20px;
+/*    height:20px;*/
     font-family: 'FrankGotMed', Arial;
     cursor:pointer;
     padding-right:100px;
