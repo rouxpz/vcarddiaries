@@ -139,9 +139,7 @@ h2 {
 }
 
 #title {
-/*    font-family: 'Franklin Gothic Book',georgia, serif;*/
     font-family: 'PermanentMarker',georgia, serif;
-/*    font-size: 20px;*/
     color:#cd1d38;
     width:90%;
     line-height: 95%;
@@ -368,7 +366,7 @@ a:hover{
     width:80%;
     display:block;
     margin-bottom: 5px;
-    margin-left: 5px;
+    margin-left: 15px;
 /*    bottom:0;
     margin:10px;*/
 }
