@@ -121,7 +121,7 @@ h2 {
     font-size: 25px;
     color:black;
     width:95%;
-    line-height: 90%;
+    line-height: 95%;
 }
 
 #title {
@@ -130,6 +130,7 @@ h2 {
     font-size: 20px;
     color:#cd1d38;
     width:90%;
+    line-height: 95%;
 }
 
 #story {
@@ -222,7 +223,7 @@ li, ul {
     margin-top:-1%;
 }
 
-em {
+.smallItalics {
     color:#595959;
     text-decoration: none;
     font-size: 12px;
