@@ -250,10 +250,10 @@ em {
     -moz-border-radius:26px;
     -webkit-border-radius:26px;
     border-radius:26px;
-    border:1px solid #black;
+    border:1px solid black;
     display:inline-block;
     cursor:pointer;
-    color:#black;
+    color:black;
     font-family:"Franklin Gothic Book", Arial, Helvetica;
     font-size:16px;
 /*    font-weight:bold;*/
@@ -281,7 +281,7 @@ em {
 .grey-btn {
     display: block;
     float:right;
-    margin:10 10 10 10px;
+    margin:8 10 10 10px;
     width:100px;
     height:20px;
     font-family: "Franklin Gothic Medium", Arial;
