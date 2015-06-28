@@ -15,7 +15,7 @@ html, body {
     height:80px;
     background:#d6d6d6;
     margin-bottom:10px;
-    padding-top: 20px;
+    padding-top: 10px;
     padding-left: 20px;
     font-weight: 100;
 
@@ -102,7 +102,7 @@ h1{
     font-weight: bold;
     color:black;
     margin: 0px !important;
-    padding-top: 25px;
+    padding-top: 40px;
 }
 
 h2 {
@@ -132,17 +132,17 @@ h2 {
 #boxtitle {
 /*    font-family: 'Franklin Gothic Book',georgia, serif;*/
     font-family: 'PermanentMarker',georgia, serif;
-    font-size: 25px;
+    font-size: 30px;
     color:black;
     width:95%;
-    line-height: 95%;
+    line-height: 97%;
 }
 
 #title {
     font-family: 'PermanentMarker',georgia, serif;
     color:#cd1d38;
     width:90%;
-    line-height: 95%;
+    line-height: 97%;
 }
 
 #story {
