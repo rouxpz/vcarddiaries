@@ -125,8 +125,8 @@ h2 {
 .nameInfo {
    font-family: 'FrankGotMed', Arial;
     color:black;
-    font-size:18px;
-    line-height: 95%; 
+    font-size:16px;
+    line-height: 98%;
 }
 
 #boxtitle {
@@ -241,6 +241,7 @@ li, ul {
     color:#595959;
     text-decoration: none;
     font-size: 12px;
+    line-height: 97%;
 }
 
 #clear {
