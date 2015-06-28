@@ -3,20 +3,17 @@
 ***************************************************/
 
 html, body {
-    font-family: "Franklin Gothic Book", Arial, sans-serif;
+    font-family: 'FrankGotBook', Arial, sans-serif;
     font-size: 16px;
 	background: #ffffff;
 	background-repeat: repeat;
    	width:100%;
     margin:0;
-   	/*background-attachment: fixed;*/
-	}
+}
 	
 #header{
-    /*padding-top: 0px;*/
     height:80px;
     background:#d6d6d6;
-    /*width:auto;*/
     margin-bottom:10px;
     padding-top: 20px;
     padding-left: 20px;
@@ -30,14 +27,11 @@ html, body {
 
 .container {
     float:left;
-/*    padding: 0;*/
-/*    position: relative;*/
     margin-right: 15px;
     height:500px;
     width:80%;
     min-width: 380px !important;
     max-height:500px;
-/*    background-color: #595959;*/
 }
 
 .content {
@@ -88,11 +82,23 @@ text-align: right;
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'FrankGotBook';
+    src: url('/static/css/font/Franklin Gothic Book.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FrankGotMed';
+    src: url('/static/css/font/Franklin Gothic Medium.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 h1{
     display:inline;
-/*	width: 800px;*/
 	font-family: 'FrankGotRom',georgia, serif;
-/*    letter-spacing: 0.05em;*/
     font-weight: bold;
     color:black;
     margin: 0px !important;
@@ -117,9 +123,10 @@ h2 {
 }
 
 .nameInfo {
-   font-family: "Franklin Gothic Medium", Arial;
+   font-family: 'FrankGotMed', Arial;
     color:black;
-    font-size:18px; 
+    font-size:18px;
+    line-height: 95%; 
 }
 
 #boxtitle {
@@ -141,13 +148,13 @@ h2 {
 }
 
 #story {
-    font-family: "Franklin Gothic Book", Arial;
+    font-family: 'FrankGotBook', Arial;
     color:black;
     font-size:16px;
 }
 
 #name {
-    font-family: "Franklin Gothic Medium", Arial;
+    font-family: 'FrankGotMed', Arial;
     font-size: 18px;
     color:#cd1d38;
 }
@@ -293,7 +300,7 @@ li, ul {
     margin:8 10 10 10px;
     width:100px;
     height:20px;
-    font-family: "Franklin Gothic Medium", Arial;
+    font-family: 'FrankGotMed', Arial;
     cursor:pointer;
     padding-right:100px;
     vertical-align: middle;
@@ -338,7 +345,7 @@ li, ul {
 
 a {
     color:#cd1d38;
-    font-family: "Franklin Gothic Medium";
+    font-family: 'FrankGotMed';
     text-decoration: none;
     font-size: 14px;
 }
@@ -374,7 +381,7 @@ a:hover{
     -webkit-border-radius: 28;
     -moz-border-radius: 28;
     border-radius: 28px;
-    font-family: "Franklin Gothic Medium", Arial;
+    font-family: 'FrankGotMed', Arial;
     cursor:pointer;
     /*color:black;*/
 /*    font-size: 17px;*/
@@ -433,7 +440,7 @@ a:hover{
     -webkit-border-radius: 28;
     -moz-border-radius: 28;
     border-radius: 28px;
-    font-family: "Franklin Gothic Medium", Arial;
+    font-family: 'FrankGotMed', Arial;
     cursor:pointer;
     background: #595959;
 /*    padding: 10px 20px 10px 20px;*/
