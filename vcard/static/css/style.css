@@ -81,10 +81,17 @@ text-align: right;
 
 }
 
+@font-face {
+    font-family: 'FrankGotRom';
+    src: url('/static/css/font/Franklin Gothic No. 2 Roman.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 h1{
     display:inline;
 /*	width: 800px;*/
-	font-family: 'FranklinGothic',georgia, serif;
+	font-family: 'FrankGotRom',georgia, serif;
     letter-spacing: 0.05em;
     font-weight: bold;
     color:black;
