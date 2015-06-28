@@ -70,7 +70,7 @@ h1{
 #siteName {
 	text-align: left;
 	font-family: 'FrankGotRom', Arial;
-	letter-spacing: 0.04em;
+/*	letter-spacing: 0.04em;*/
 	font-weight: bold;
 	font-size:32px;
 	color:#cd1d38;
