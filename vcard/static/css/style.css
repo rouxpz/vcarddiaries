@@ -102,7 +102,7 @@ h1{
     font-weight: bold;
     color:white;
     margin: 0px !important;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.05em;
 /*    padding-top: 40px;*/
 }
 
@@ -135,6 +135,7 @@ h2 {
     color:white;
     font-size:16px;
     line-height: 130%;
+    letter-spacing: 0.03em;
 }
 
 #boxtitle {
