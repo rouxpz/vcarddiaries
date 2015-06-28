@@ -31,7 +31,6 @@ document.getElementById("back").onclick = function() {
 document.getElementById("close").onclick = function() {
     document.getElementById('light').style.display='none';
     document.getElementById('scrollbuttons').style.display='none';
-    document.getElementById('closeAbout').style.display='none';
     document.getElementById('fade').style.display='none';
     document.body.style.overflow='auto';
 
@@ -62,7 +61,6 @@ window.document.onkeydown = function(e) {
         document.getElementById('light').style.display='none';
         document.getElementById('aboutWindow').style.display='none';
         document.getElementById('scrollbuttons').style.display='none';
-        document.getElementById('closeAbout').style.display='none';
         document.getElementById('fade').style.display='none';
         document.body.style.overflow='auto';
 

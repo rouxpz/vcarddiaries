@@ -45,10 +45,6 @@
             <a href="/"><h2 class="subtitle">tales of sexual debuts and deferrals</h2></a>
         </div>
 
-        <div id="closeAbout">
-            <a href = "javascript:void(0)" id="close"><img src="{% static "img/close.png" %}" width="75"/></a>
-        </div>
-
         <div id="scrollbuttons">
             <a href = "javascript:void(0)" id="back"><img src="{% static "img/left.png" %}" width="100"/></a>
             <a href = "javascript:void(0)" id = "next"><img src="{% static "img/right.png" %}" width="100"/></a>
@@ -173,7 +169,6 @@
 
     document.getElementById("about").onclick = function() {
         document.getElementById('aboutWindow').style.display='block';
-        document.getElementById('closeAbout').style.display='block';
         document.getElementById('fade').style.display='block';
         document.body.style.overflow='hidden';
     }
