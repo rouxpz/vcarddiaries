@@ -209,13 +209,23 @@ li, ul {
 /*	display: inline;*/
 }
 
-#scrollbuttons, #closeAbout {
+#scrollbuttons {
     display: none;
     position:relative;
     z-index:1002;
     width: 100%;
     height:100%;
     top:-100px;
+    overflow: hidden;
+}
+
+#closeAbout {
+    display: none;
+    position:relative;
+    z-index:1002;
+    width: 100%;
+    height:100%;
+/*    top:-100px;*/
     overflow: hidden;
 }
 
