@@ -126,8 +126,9 @@ h2 {
 .nameInfo {
    font-family: 'FrankGotMed', Arial;
     color:black;
-    font-size:16px;
+    font-size:20px;
     line-height: 150%;
+    display: inline-block;
 }
 
 .subtitle {
@@ -152,6 +153,7 @@ h2 {
     color:#cd1d38;
     width:90%;
     line-height: 97%;
+    /*display:inline-block;*/
 }
 
 #story {
@@ -280,7 +282,7 @@ li, ul {
 }
 
 #submit-button, #home-button, #film-button {
-    background-color:#ababab;
+    background-color:#c4c4c4;
     -moz-border-radius:26px;
     -webkit-border-radius:26px;
     border-radius:26px;
