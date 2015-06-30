@@ -10,7 +10,7 @@ function tagFilter(tagID) {
 
         var split = tagID.split("g");
         allTags[allTags.length] = split[1];
-        // console.log(allTags);
+        console.log(allTags);
         // console.log("tag logging happening")
 
         allTagsText[allTagsText.length] = t.text;

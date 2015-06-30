@@ -21,8 +21,10 @@ def storyindex(request):
 	# all_tags = Tag.objects.order_by('pk')
 	all_tags = Tag.objects.all()
 	# all_tags = story.tags.all()
+	age_choices = Story.AGE_CHOICES
 	context = {'all_stories': all_stories,
 			   'all_tags': all_tags,
+			   'age_choices': age_choices,
 				}
 
 	return render(request, 'firstperson/storyindex.html', context)

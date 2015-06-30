@@ -41,6 +41,7 @@ function startForce() {
     	.attr('id', function(d, i) { return "id" + nodes[i].id; });
 
     d3.selectAll(".tag").on("click", function() {
+    	link.remove();
 		links = [];
 		force.links(links);
 
@@ -149,7 +150,7 @@ function startForce() {
 
 function selectEntries(selection) {
 
-	// console.log("tags to select from: " + selection);
+	console.log("tags to select from: " + selection);
 	for (var i = 0; i < selection.length; i++) {
 		for (var j = 0; j < tags.length; j++) {
 			for (var k = 0; k < tags[j].length; k++) {
