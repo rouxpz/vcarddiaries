@@ -1,9 +1,12 @@
 //filter stories by tags
+
 function tagFilter(tagID) {
     var t = document.getElementById(tagID);
     console.log(t.className);
     if (t.tagName != "circle") {
     console.log(tagID);
+
+    var c = $("#canvas");
 
     var split = tagID.split("g");
     allTags[allTags.length] = split[1];
@@ -25,7 +28,7 @@ function tagFilter(tagID) {
 
         for (var k = 0; k < allTags.length; k++) {
             if (parsed_tags.indexOf(allTags[k]) == -1) {
-                var selector = "circle[id='" + ids[i] +"']"; 
+                var selector = "circle[id='id" + ids[i] +"']"; 
                 var selectedCircle = d3.select(selector);
                 var currentX = selectedCircle.attr("cx");
                 var currentY = selectedCircle.attr("cy");
@@ -52,13 +55,13 @@ function tagFilter(tagID) {
                     newY = currentY;
                 }
 
-                selectedCircle.transition().attr("r", 5).style("fill", "").attr("cx", newX).attr("cy", newY);
+                selectedCircle.transition().attr("r", c.width()/150).style("fill", "");
                 continue first;
             } else {
-                var selector = "circle[id='" + ids[i] +"']"; 
+                var selector = "circle[id='id" + ids[i] +"']"; 
                 var selectedCircle = d3.select(selector);
                 var c = $("#canvas");
-                selectedCircle.transition().attr("r", 10).style("fill", "#FFE066").attr("cx", function() { return Math.random() * (600-400) + 400; }).attr("cy", function() { return Math.random() * (300-200) + 200; }).ease("elastic").duration("1500");
+                selectedCircle.transition().attr("r", 15).style("fill", "#FFE066");
 
                 }
             }
@@ -74,16 +77,18 @@ function tagFilter(tagID) {
     var inputText = document.getElementById("search").value;
     console.log(inputText);
 
+    var c = $("#canvas");
+
     for (var i = 0; i < storytexts.length; i++) {
         var lowerstory = storytexts[i].toLowerCase();
         if (lowerstory.indexOf(inputText) > -1) {
             console.log(names[i]);
-            var selector = "circle[id='" + ids[i] +"']"; 
+            var selector = "circle[id='id" + ids[i] +"']"; 
             var selectedCircle = d3.select(selector);
             selectedCircle.transition().attr("r", 10).style("fill", "#FFE066");
         } else {
-            document.getElementById(ids[i]).style.fill = "";
-            document.getElementById(ids[i]).setAttribute("r", 5);
+            document.getElementById('id' + ids[i]).style.fill = "";
+            document.getElementById('id' + ids[i]).setAttribute("r", c.width()/150);
         }
     }
 };
@@ -94,17 +99,20 @@ document.getElementById("clear").onclick = function() {
     allTags = [];
     selectedStories = [];
     allTagsText = [];
+    var c = $("#canvas");
+
     document.getElementById("selected-tags").innerHTML = "";
     document.getElementById("storyinfo").innerHTML = "";
     textarea.value = '';
 
     console.log("tags cleared");
     for (var i = 0; i < ids.length; i++) {
-        var selector = "circle[id='" + ids[i] +"']";
+        var selector = "circle[id='id" + ids[i] +"']";
         var selectedCircle = d3.select(selector);
-        selectedCircle.transition().attr("r", 5).style("fill", "").attr("cx", function() { return Math.random() * (800-30) + 30; }).attr("cy", function() { return Math.random() * (450-30) + 30; });
+        selectedCircle.transition().attr("r", c.width()/150).style("fill", "");
     }
 }
+
 var c = $("#canvas"),
     aspect = c.width()/c.height(),
     container = c.parent();

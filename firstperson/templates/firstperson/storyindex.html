@@ -5,7 +5,6 @@
 	<title>The V-Card Diaries</title>
 	<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}"/>
     <link rel="shortcut icon" type="image/png" href="{% static "favicon.ico"%}"/>
-    <script src="{% static "js/d3.min.js" %}"></script>
     <script src="{% static "js/jquery-1.11.3.min.js" %}"></script>
     <script>
         $(document).ready(function(){
@@ -32,6 +31,7 @@
 <!-- email notifications on posting  -->
 
 <body>
+    <script src="{% static "js/d3.min.js" %}"></script>
     <div id="fullbody">
         <!--     Header -->
         <div id="header">
@@ -45,12 +45,6 @@
             <a href="/"><h2 class="subtitle">tales of sexual debuts and deferrals</h2></a>
         </div>
 
-        <div id="scrollbuttons">
-            <a href = "javascript:void(0)" id="back"><img src="{% static "img/left.png" %}" width="100"/></a>
-            <a href = "javascript:void(0)" id = "next"><img src="{% static "img/right.png" %}" width="100"/></a>
-            <a href = "javascript:void(0)" id="close"><img src="{% static "img/close.png" %}" width="75"/></a>
-        </div>
-
         <div id="nav">
             <img src="{% static "img/cherry.jpg" %}" width="80"></img>
             <span id="storyinfo"></span>
@@ -59,13 +53,8 @@
         <div class="container">
             {% if all_stories %}
 
-                <svg id="canvas" width="1000" height="500"
-                    viewBox="0 0 1000 500"
-                    preserveAspectRatio="xMidYMid meet">
-                    {% for story in all_stories %}                  
-                       <a class = "story" href="javascript:void(0)"><circle id="{{story.id}}" class="vis" cx="40" cy="60" r="5" style="opacity:0;"></circle></a>            
-                    {% endfor %}
-                </svg>
+                <script src="{% static "js/vis.js" %}"></script>
+                <script src="{% static "js/loadData.js" %}"></script>
 
             {% else %}
                 <p>No stories are available.</p>
@@ -129,13 +118,14 @@
         <div id="light" class="white_content">
 
             <h2 id="boxtitle"></h2><br>
-            <p id="name"></p><br>
+            <p id="name"></p>
+            <p id="place"></p><br>
             <p id="count"></p><br>
 
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fvcarddiaries.com" target="_blank"><img src="{% static "img/facebook-share.png" %}" width="30" class="social"></img></a>
-            <a href="https://twitter.com/intent/tweet?url=vcarddiaries.com&text=Stories of sexual debuts and deferrals&via=VCardDiaries" target="_blank"><img src="{% static "img/twitter-share.png" %}" width="30" class="social"></img></a>
-            <a href="http://www.tumblr.com/share/link?url=vcarddiaries.com&name=test&description=test" target="_blank"><img src="{% static "img/tumblr-share.png" %}" width="30" class="social"></img></a>
-            <a href="http://reddit.com/submit?url=http://vcarddiaries.com&title=test"><img src="{% static "img/reddit-share.png" %}" width="30" class="social"></img></a>
+            <a href=javascript:pop("https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fvcarddiaries.com")><img src="{% static "img/facebook-share.png" %}" width="30" class="social"></img></a>
+            <a href=javascript:pop("https://twitter.com/intent/tweet?url=vcarddiaries.com&text=Stories+of+sexual+debuts+and+deferrals&via=VCardDiaries")><img src="{% static "img/twitter-share.png" %}" width="30" class="social"></img></a>
+            <a href=javascript:pop("http://www.tumblr.com/share/link?url=vcarddiaries.com&name=test&description=test")><img src="{% static "img/tumblr-share.png" %}" width="30" class="social"></img></a>
+            <a href=javascript:pop("http://reddit.com/submit?url=http://vcarddiaries.com&title=test")><img src="{% static "img/reddit-share.png" %}" width="30" class="social"></img></a>
 
             <br><br>
 
@@ -165,76 +155,40 @@
 
     </div>
 
-    <script>
+    <div id="scrollbuttons">
+            <a href = "javascript:void(0)" id="back"><img src="{% static "img/left.png" %}" width="100"/></a>
+            <a href = "javascript:void(0)" id = "next"><img src="{% static "img/right.png" %}" width="100"/></a>
+            <a href = "javascript:void(0)" id="close"><img src="{% static "img/close.png" %}" width="75"/></a>
+    </div>
 
-    document.getElementById("about").onclick = function() {
-        document.getElementById('aboutWindow').style.display='block';
-        document.getElementById('fade').style.display='block';
-        document.body.style.overflow='hidden';
-    }
+    <div id="closeAbout">
+    </div>
+
+    <script>
+        document.getElementById("about").onclick = function() {
+            document.getElementById('aboutWindow').style.display='block';
+            document.getElementById('closeAbout').style.display='block';
+            document.getElementById('fade').style.display='block';
+            document.body.style.overflow='hidden';
+        }
+
+        var newwindow;
+        function pop(url)
+        {
+            nw=window.open(url,'name','height=400,width=800');
+            if (window.focus) {nw.focus()}
+        }
 
     </script>
 
     {% if all_stories %}
 
-        <script src="{% static "js/loadData.js" %}"></script>
-
-        {% for story in all_stories %}
-        {% autoescape off %}
         <script>
 
-        var currentStory;
+            var currentStory;
+            var selectedStories = [];
 
-        var selectedStories = [];
-
-        document.getElementById("{{story.id}}").onmouseover = function() {
-            console.log("{{story.id}}");
-            for (var i = 0; i < ids.length; i++) {
-                if ("{{story.id}}".indexOf(ids[i]) > -1) {
-                    document.getElementById("storyinfo").innerHTML = "</br><h2 id=\"title\">" + titles[i] +  "</h2><p class=\"nameInfo\">" + names[i] + "</p></br>";
-                } 
-            }
-        };
-
-        document.getElementById("{{story.id}}").onclick = function() {
-            console.log("{{story.id}}");
-            document.getElementById('light').style.display='block';
-            document.getElementById('scrollbuttons').style.display='block';
-            document.getElementById('fade').style.display='block';
-            document.body.style.overflow='hidden';
-
-            if (document.getElementById("{{story.id}}").style.fill != "") {
-                console.log("selected story clicked");
-                for (var i = 0; i < ids.length; i++) {
-                    if (document.getElementById(ids[i]).style.fill != "") {
-                        selectedStories[selectedStories.length] = [ids[i], storytexts[i], names[i], titles[i]];
-                    }
-                }
-
-            } else {
-                for (var i = 0; i < ids.length; i++) {
-                    selectedStories[selectedStories.length] = [ids[i], storytexts[i], names[i], titles[i]];
-                }
-            }
-
-            for (var i = 0; i < selectedStories.length; i++){
-                if (selectedStories[i][0] == "{{story.id}}") {
-                    currentStory = i + 1;
-                    document.getElementById("boxtitle").innerHTML = selectedStories[i][3];
-                    document.getElementById("story").innerHTML = selectedStories[i][1];
-                    document.getElementById("name").innerHTML = "By " + selectedStories[i][2];
-                    document.getElementById("count").innerHTML = "Story " + currentStory + " of " + selectedStories.length;
-                }
-            } 
-        }
-
-        document.getElementById("{{story.id}}").onmouseout= function() {
-            document.getElementById("storyinfo").innerHTML = "";
-        };
-
-        </script>
-        {% endautoescape %}
-        {% endfor %}
+         </script>
 
         <script src="{% static "js/storyWindow.js" %}"></script>
         <script src="{% static "js/tags.js" %}"></script>

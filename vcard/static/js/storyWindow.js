@@ -10,6 +10,7 @@ document.getElementById("next").onclick = function() {
     document.getElementById("boxtitle").innerHTML = selectedStories[currentStory - 1][3];
     document.getElementById("story").innerHTML = selectedStories[currentStory - 1][1];
     document.getElementById("name").innerHTML = "By " + selectedStories[currentStory - 1][2];
+    document.getElementById("place").innerHTML = selectedStories[currentStory - 1][4];
     document.getElementById("count").innerHTML = "Story " + (currentStory) + " of " + selectedStories.length;
 }
 
@@ -25,12 +26,17 @@ document.getElementById("back").onclick = function() {
     document.getElementById("boxtitle").innerHTML = selectedStories[currentStory - 1][3];
     document.getElementById("story").innerHTML = selectedStories[currentStory - 1][1];
     document.getElementById("name").innerHTML = "By " + selectedStories[currentStory - 1][2];
+    document.getElementById("place").innerHTML = selectedStories[currentStory - 1][4];
     document.getElementById("count").innerHTML = "Story " + (currentStory) + " of " + selectedStories.length;
 }
 
 document.getElementById("close").onclick = function() {
+    var c = $("#canvas");
+
     document.getElementById('light').style.display='none';
+    document.getElementById('aboutWindow').style.display='none';
     document.getElementById('scrollbuttons').style.display='none';
+    document.getElementById('closeAbout').style.display='none';
     document.getElementById('fade').style.display='none';
     document.body.style.overflow='auto';
 
@@ -47,20 +53,24 @@ document.getElementById("close").onclick = function() {
     document.getElementById("boxtitle").innerHTML = "";
     document.getElementById("story").innerHTML = "";
     document.getElementById("name").innerHTML = "";
+    document.getElementById("place").innerHTML = "";
     document.getElementById("count").innerHTML = "";
 
     for (var i = 0; i < ids.length; i++) {
-            document.getElementById(ids[i]).style.fill = "";
-            document.getElementById(ids[i]).setAttribute("r", 5);
+            document.getElementById('id' + ids[i]).style.fill = "";
+            document.getElementById('id' + ids[i]).setAttribute("r", c.width()/150);
     }
 }
 
 window.document.onkeydown = function(e) {
+    var c = $("#canvas");
+
     if (!e) e = event;
     if (e.keyCode == 27) {
         document.getElementById('light').style.display='none';
         document.getElementById('aboutWindow').style.display='none';
         document.getElementById('scrollbuttons').style.display='none';
+        document.getElementById('closeAbout').style.display='none';
         document.getElementById('fade').style.display='none';
         document.body.style.overflow='auto';
 
@@ -77,11 +87,12 @@ window.document.onkeydown = function(e) {
         document.getElementById("boxtitle").innerHTML = "";
         document.getElementById("story").innerHTML = "";
         document.getElementById("name").innerHTML = "";
+        document.getElementById("place").innerHTML = "";
         document.getElementById("count").innerHTML = "";
 
         for (var i = 0; i < ids.length; i++) {
-            document.getElementById(ids[i]).style.fill = "";
-            document.getElementById(ids[i]).setAttribute("r", 5);
+            document.getElementById('id' + ids[i]).style.fill = "";
+            document.getElementById('id' + ids[i]).setAttribute("r", c.width()/150);
         }
     }
 
