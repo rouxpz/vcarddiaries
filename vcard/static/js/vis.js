@@ -13,7 +13,7 @@ function startForce() {
 		})
 	}
 
-	console.log(nodes);
+	// console.log(nodes);
 
 	var svg = d3.selectAll("div.container").append('svg')
 		.attr('width', width)
@@ -53,17 +53,17 @@ function startForce() {
 					var splitID = toLink[i].split("d");
 					var realID = splitID[1];
 
-					console.log(realID);
-					console.log(nodes);
+					// console.log(realID);
+					// console.log(nodes);
 
-					if (realID.indexOf(nodes[j].id) != -1) {
+					if (realID === nodes[j].id) {
 						//add to temp nodes list
 						tempNodes[tempNodes.length] = j;
 					}
 				}
 			}
 		}
-		console.log("temp nodes: " + tempNodes);
+		// console.log("temp nodes: " + tempNodes);
 
 		for (var i = 0; i < tempNodes.length; i++) {
 			links.push({source: tempNodes[i], target: tempNodes[Math.floor(Math.random() * tempNodes.length)]});
@@ -73,9 +73,6 @@ function startForce() {
         	.data(links)
 			.enter().append("line")
             .attr("class", "link");
-
-
-        console.log("links: " + links);
 
         force.start();
 	});
@@ -93,21 +90,20 @@ function startForce() {
 		    .attr("y1", function(d) { return d.source.y; })
 		    .attr("x2", function(d) { return d.target.x; })
 		    .attr("y2", function(d) { return d.target.y; });
-		// console.log(link);
     	node.attr("cx", function(d) { return d.x; })
      		.attr("cy", function(d) { return d.y; });
     });
 
 	d3.selectAll("circle").on("mouseover", function(d, i) {
-		var className = document.querySelector("circle").getAttribute("class")
-		console.log(className);
+		// var className = document.querySelector("circle").getAttribute("class")
+		// console.log(className);
 
 		var splitID = this.id.split("d");
 		var realID = splitID[1];
 		for (var i = 0; i < ids.length; i++) {
 			if (realID.indexOf(ids[i]) > -1) {
 				d3.select(this).attr("r", width/130);
-				console.log(titles[i]);
+				// console.log(titles[i]);
 				document.getElementById("storyinfo").innerHTML = "</br><h2 id=\"title\">" + titles[i] +  "</h2><p class=\"nameInfo\">" + names[i] + "</p></br>";
 			}
 		}
@@ -121,7 +117,7 @@ function startForce() {
 			var realID = splitID[1];
 
             if (document.getElementById(this.id).style.fill != "") {
-                console.log("selected story clicked");
+                // console.log("selected story clicked");
                 for (var i = 0; i < ids.length; i++) {
                     if (document.getElementById('id' + ids[i]).style.fill != "") {
                         selectedStories[selectedStories.length] = [ids[i], storytexts[i], names[i], titles[i], places[i]];
@@ -152,16 +148,14 @@ function startForce() {
 };
 
 function selectEntries(selection) {
-	// links = [];
-	// force.links(links);
 
-	console.log("tags to select from: " + selection);
+	// console.log("tags to select from: " + selection);
 	for (var i = 0; i < selection.length; i++) {
 		for (var j = 0; j < tags.length; j++) {
 			for (var k = 0; k < tags[j].length; k++) {
 				if (selection[i] == tags[j][k]) {
-					console.log("selected tag: " + tags[j][k]);
-					console.log("selected ID: " + ids[j]);
+					// console.log("selected tag: " + tags[j][k]);
+					// console.log("selected ID: " + ids[j]);
 
 					var selector = "circle[id='id" + ids[j] +"']"; 
                 	var selectedCircle = d3.select(selector);

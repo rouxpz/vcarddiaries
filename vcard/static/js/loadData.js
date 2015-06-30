@@ -52,7 +52,7 @@ function loadJSON(url, callback) {
                 }
 
                 tags[tags.length] = tag_list;
-                console.log(tag_list);
+                // console.log(tag_list);
 
                 for (var j = 0; j < storytexts.length; j++) {
                     storytexts[j] = storytexts[j].replace('\r\n', ' ');
@@ -67,7 +67,7 @@ function loadJSON(url, callback) {
     }
 
     json.send();
-    console.log("json loaded");
+    // console.log("json loaded");
 };
 
 loadJSON(url, startForce);
