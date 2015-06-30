@@ -343,8 +343,9 @@ li, ul {
 }
 
 .link {
-    stroke: #777;
-    stroke-width: 2px;
+    stroke: #595959;
+    stroke-width: 1px;
+    opacity: 0.7;
 }
 
 .category {
