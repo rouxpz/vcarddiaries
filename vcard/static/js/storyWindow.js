@@ -43,7 +43,7 @@ document.getElementById("close").onclick = function() {
     // allTags = [];
     selectedStories = [];
     // allTagsText = [];
-    document.getElementById("selected-tags").innerHTML = "";
+    // document.getElementById("selected-tags").innerHTML = "";
     document.getElementById("storyinfo").innerHTML = "";
     textarea.value = '';
     document.getElementById("theme").value = "none";
@@ -74,10 +74,10 @@ window.document.onkeydown = function(e) {
         document.getElementById('fade').style.display='none';
         document.body.style.overflow='auto';
 
-        allTags = [];
+        // allTags = [];
         selectedStories = [];
-        allTagsText = [];
-        document.getElementById("selected-tags").innerHTML = "";
+        // allTagsText = [];
+        // document.getElementById("selected-tags").innerHTML = "";
         document.getElementById("storyinfo").innerHTML = "";
         textarea.value = '';
         document.getElementById("theme").value = "none";
@@ -90,10 +90,10 @@ window.document.onkeydown = function(e) {
         document.getElementById("place").innerHTML = "";
         document.getElementById("count").innerHTML = "";
 
-        for (var i = 0; i < ids.length; i++) {
-            document.getElementById('id' + ids[i]).style.fill = "";
-            document.getElementById('id' + ids[i]).setAttribute("r", c.width()/150);
-        }
+        // for (var i = 0; i < ids.length; i++) {
+        //     document.getElementById('id' + ids[i]).style.fill = "";
+        //     document.getElementById('id' + ids[i]).setAttribute("r", c.width()/150);
+        // }
     }
 
 };
