@@ -13,8 +13,6 @@ function startForce() {
 		})
 	}
 
-	// console.log(nodes);
-
 	var svg = d3.selectAll("div.container").append('svg')
 		.attr('width', width)
 		.attr('height', height)
@@ -76,6 +74,7 @@ function startForce() {
             .attr("class", "link");
 
         force.start();
+        toLink = [];
 	});
 
 	d3.selectAll("#clear").on("click", function() {
@@ -96,19 +95,24 @@ function startForce() {
     });
 
 	d3.selectAll("circle").on("mouseover", function(d, i) {
-		// var className = document.querySelector("circle").getAttribute("class")
-		// console.log(className);
 
 		var splitID = this.id.split("d");
 		var realID = splitID[1];
 		for (var i = 0; i < ids.length; i++) {
 			if (realID.indexOf(ids[i]) > -1) {
-				d3.select(this).attr("r", width/130);
-				// console.log(titles[i]);
-				document.getElementById("storyinfo").innerHTML = "</br><h2 id=\"title\">" + titles[i] +  "</h2><p class=\"nameInfo\">" + names[i] + "</p></br>";
+
+				if (d3.select(this).attr("r") <= width/150) {
+					console.log(d3.select(this).attr("r"));
+					d3.select(this).attr("r", width/130);
+				} else if (d3.select(this).attr("r") >= width/100) {
+					d3.select(this).attr("r", width/90);
+				}
+
+				document.getElementById("storyinfo").innerHTML = "</br><h2 id=\"title\">" + titles[i] +  "</h2><p class=\"nameInfo\"> " + names[i] + "</p></br>";
 			}
 		}
 	}).on("click", function(d, i) {
+
 		    document.getElementById('light').style.display='block';
             document.getElementById('scrollbuttons').style.display='block';
             document.getElementById('fade').style.display='block';
@@ -118,7 +122,7 @@ function startForce() {
 			var realID = splitID[1];
 
             if (document.getElementById(this.id).style.fill != "") {
-                // console.log("selected story clicked");
+
                 for (var i = 0; i < ids.length; i++) {
                     if (document.getElementById('id' + ids[i]).style.fill != "") {
                         selectedStories[selectedStories.length] = [ids[i], storytexts[i], names[i], titles[i], places[i]];
@@ -142,7 +146,11 @@ function startForce() {
                 }
             } 
 	}).on("mouseout", function(d, i) {
-		d3.select(this).attr("r", width/150);
+		if (d3.select(this).attr("r") <= width/130) {
+			d3.select(this).attr("r", width/150);
+		} else if (d3.select(this).attr("r") >= width/90) {
+			d3.select(this).attr("r", width/100);
+		}
 		document.getElementById("storyinfo").innerHTML = "";
 	});
 
@@ -150,23 +158,40 @@ function startForce() {
 
 function selectEntries(selection) {
 
-	console.log("tags to select from: " + selection);
-	for (var i = 0; i < selection.length; i++) {
-		for (var j = 0; j < tags.length; j++) {
-			for (var k = 0; k < tags[j].length; k++) {
-				if (selection[i] == tags[j][k]) {
-					// console.log("selected tag: " + tags[j][k]);
-					// console.log("selected ID: " + ids[j]);
+	for (var i = 0; i < tags.length; i++) {
+		var parsedTags = [];
+		for (var j = 0; j < tags[i].length; j++) {
+			parsed = String(tags[i][j]);
+			parsedTags[parsedTags.length] = parsed;
+		}
 
-					var selector = "circle[id='id" + ids[j] +"']"; 
-                	var selectedCircle = d3.select(selector);
-                	toLink[toLink.length] = 'id' + ids[j];
-                	var c = $("#canvas");
-                	selectedCircle.transition().attr("r", c.width()/100).style("fill", "#FFE066").attr("class", "node selected");
-				}
-			}
-		};
+		var contains = containsAll(selection, parsedTags);
 
-	};
+		if (contains != false) {
+			var selector = "circle[id='id" + ids[i] +"']"; 
+        	var selectedCircle = d3.select(selector);
+        	var c = $("#canvas");
+        	selectedCircle.transition().attr("r", c.width()/100).style("fill", "#FFE066");
+        	toLink[toLink.length] = 'id' + ids[i];
+		} else {
+			var selector = "circle[id='id" + ids[i] +"']"; 
+        	var selectedCircle = d3.select(selector);
+        	var c = $("#canvas");
+        	selectedCircle.transition().attr("r", c.width()/150).style("fill", "");
+		}
+
+	}
 
 };
+
+function containsAll(specificTags, allTags) {
+	for (var i = 0; i < specificTags.length; i++) {
+		if (allTags.indexOf(specificTags[i]) == -1) {
+			return false;
+			// break;
+		}
+	}
+
+	return true;
+
+}
