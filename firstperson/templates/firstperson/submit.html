@@ -2,6 +2,9 @@
 <html>
 	<head>
 		{% load staticfiles %}
+		{% load wysiwyg %}
+		{% wysiwyg_setup %}
+		
 		<title>Submit Your Story</title>
 		<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}"/>
 	</head>
@@ -11,11 +14,11 @@
 		<h1>submit your story</h1><div class="grey-btn" id="home"><a href="/stories/" id="home-button">read stories</a></div>
 		</div>
 		<div class="content">
-			<em>Contribute your story to the <strong>V-Card Diaries</strong> here! Starred fields are mandatory, but more information will help others find your story more easily.</em><br>
+			<em>Contribute your story to the <strong>V-Card Diaries</strong> here! Starred fields are mandatory, but more information will help others find your story more easily.</em><br><br>
 		<form id="story_form" method="post" action="">
 			{% csrf_token %}
 
-			<strong>{{form.name.label}}</strong>  
+			<strong>* {{form.name.label}}</strong>  
 			{{form.name}}<br>
 			<br>
 			<strong>tell us about yourself.</strong>
@@ -26,19 +29,19 @@
 			city  {{form.city}} {{form.state}} {{form.country}}
 			<br>
 			<br>
-			<strong>{{ form.age.label }}</strong><br>
+			<strong>* {{ form.age.label }}</strong><br>
 			{{ form.age }}</div>
 			<br>
-			<strong>{{ form.definition.label }}</strong><br>
+			<strong>* {{ form.definition.label }}</strong><br>
 			{{ form.definition }}
 			<br>
 			<br>
 		
-			<strong>{{ form.text.label }}</strong><br>
-			{{ form.text }}<br><br>
+			<strong>* {{ form.text.label }}</strong><br>
+			{{ form.text }}{% wysiwyg_editor "storytext" %}<br><br>
 			<strong>{{ form.theme_tags.label }}</strong><br>
 				<div id="tags">{{form.theme_tags }}</div><br>
-			<strong>{{ form.email.label }}</strong>  {{form.email}}<br>
+			<strong>* {{ form.email.label }}</strong>  {{form.email}}<br>
 			<br>
 			<div class="fineprint"><strong>the fine print:</strong> Thanks so much for sharing your story with V-Card Diaries! By hitting "submit" you grant Trixie Films non-exclusive rights to publish your story in conjunction with the project "How To Lose Your Virginity." You also understand that if we publish your story, we may edit it for length or clarity.</div>
 			<br/>
