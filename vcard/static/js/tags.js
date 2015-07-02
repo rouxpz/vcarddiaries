@@ -7,8 +7,12 @@ function tagFilter(tagID) {
 
         var c = $("#canvas");
         
-        var split = tagID.split("g");
-        allTags[allTags.length] = split[1];
+        if (tagID.indexOf('tag') != -1) {
+            var split = tagID.split("g");
+            allTags[allTags.length] = split[1];
+        } else {
+            allTags[allTags.length] = tagID;
+        }
 
         allTagsText[allTagsText.length] = t.text;
         selectEntries(allTags);

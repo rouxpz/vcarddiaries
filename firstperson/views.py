@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from firstperson.models import *
 from firstperson.forms import StoryForm
 from django.core import serializers
@@ -22,9 +22,13 @@ def storyindex(request):
 	all_tags = Tag.objects.all()
 	# all_tags = story.tags.all()
 	age_choices = Story.AGE_CHOICES
+	state_choices = Story.STATE_CHOICES
+	country_choices = Story.COUNTRY_CHOICES
 	context = {'all_stories': all_stories,
 			   'all_tags': all_tags,
 			   'age_choices': age_choices,
+			   'state_choices': state_choices,
+			   'country_choices': country_choices,
 				}
 
 	return render(request, 'firstperson/storyindex.html', context)
@@ -47,7 +51,7 @@ def submit(request):
 			post = '#VirginityIs ' + form.definition
 			api.PostUpdate(post)
 			# form.save()
-			return HttpResponse('Thank you for submitting!')
+			return HttpResponseRedirect('/stories/')
 
 		else:
 			print form.errors

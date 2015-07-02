@@ -86,12 +86,12 @@ function startForce() {
 	});
 
     force.on('tick', function() {
-    	link.attr("x1", function(d) { return d.source.x; })
+    	node.attr("cx", function(d) { return d.x; })
+     		.attr("cy", function(d) { return d.y; });
+     	link.attr("x1", function(d) { return d.source.x; })
 		    .attr("y1", function(d) { return d.source.y; })
 		    .attr("x2", function(d) { return d.target.x; })
 		    .attr("y2", function(d) { return d.target.y; });
-    	node.attr("cx", function(d) { return d.x; })
-     		.attr("cy", function(d) { return d.y; });
     });
 
 	d3.selectAll("circle").on("mouseover", function(d, i) {
@@ -137,11 +137,40 @@ function startForce() {
 
             for (var i = 0; i < selectedStories.length; i++){
                 if (selectedStories[i][0] == realID) {
+
+                	var city, state, country;
+
+                	if (selectedStories[i][4][0] == "N/A") {
+                		city = '';
+                	} else {
+                		city = selectedStories[i][4][0] + ", ";
+                	}
+
+                	for (var j = 0; j < stateShort.length; j++) {
+                		if (j == 1) {
+                			state = '';
+                		} else {
+	                		if (selectedStories[i][4][1] == stateShort[j]) {
+	                			state = stateLong[j] + ", ";
+	                		}
+	                	}
+                	}
+
+                	for (var j = 0; j < countryShort.length; j++) {
+                		if (selectedStories[i][4][2] == 'US') {
+                			country = 'USA';
+                		} else {
+	                		if (selectedStories[i][4][2] == countryShort[j]) {
+	                			country = countryLong[j];
+	                		}
+	                	}
+                	}
+
                     currentStory = i + 1;
                     document.getElementById("boxtitle").innerHTML = selectedStories[i][3];
                     document.getElementById("story").innerHTML = selectedStories[i][1];
                     document.getElementById("name").innerHTML = "By " + selectedStories[i][2];
-                    document.getElementById("place").innerHTML = selectedStories[i][4];
+                    document.getElementById("place").innerHTML = city + state + country;
                     document.getElementById("count").innerHTML = "Story " + currentStory + " of " + selectedStories.length;
                 }
             } 

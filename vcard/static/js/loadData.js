@@ -12,7 +12,6 @@ var url = "/stories/api_search";
 
 function loadJSON(url, callback) {
     var json = new XMLHttpRequest();
-    json.open("GET", url, true);
 
     json.onreadystatechange = function() {
         if (json.readyState == 4 && json.status == 200) {
@@ -24,8 +23,8 @@ function loadJSON(url, callback) {
                 names[names.length] = myArr[i].fields.name;
                 titles[titles.length] = myArr[i].fields.title;
 
-                var location = myArr[i].fields.city + ", " + myArr[i].fields.state + ", " + myArr[i].fields.country;
-                places[places.length] = location;
+                var storyPlace = [myArr[i].fields.city, myArr[i].fields.state, myArr[i].fields.country];
+                places[places.length] = storyPlace;
 
 
                 var raw_demo_tags = myArr[i].fields.demo_tags;
@@ -51,8 +50,10 @@ function loadJSON(url, callback) {
                     tag_list[tag_list.length] = raw_exp_tags[j];
                 }
 
+                tag_list[tag_list.length] = myArr[i].fields.age;
+
                 tags[tags.length] = tag_list;
-                // console.log(tag_list);
+                console.log(tag_list);
 
                 for (var j = 0; j < storytexts.length; j++) {
                     storytexts[j] = storytexts[j].replace('\r\n', ' ');
@@ -66,6 +67,7 @@ function loadJSON(url, callback) {
         }
     }
 
+    json.open("GET", url, true);
     json.send();
     // console.log("json loaded");
 };

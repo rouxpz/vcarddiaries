@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-	{% load staticfiles %}
-	<title>The V-Card Diaries</title>
-	<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}"/>
+    {% load staticfiles %}
+    <title>The V-Card Diaries</title>
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}"/>
     <link rel="shortcut icon" type="image/png" href="{% static "favicon.ico"%}"/>
     <script src="{% static "js/jquery-1.11.3.min.js" %}"></script>
     <script>
         $(document).ready(function(){
-        $("#theme").click(function(){
-            $("#theme-tags").toggle("fast");
-        });
-        $("#sexuality").click(function(){
-            $("#sexuality-tags").toggle("fast");
-        });
-        $("#demographic").click(function(){
-            $("#demographic-tags").toggle("fast");
-        });
-        $("#experience").click(function(){
-            $("#experience-tags").toggle("fast");
-        });
-        $("#ages").click(function(){
-            $("#age-tags").toggle("fast");
-        });
 
-        var circle = d3.selectAll("circle");
-        var canvas = $("#canvas");
-        circle.transition().attr("cx", function() { return Math.random() * (800-30) + 30; }).attr("cy", function() { return Math.random() * (450-30) + 30; }).ease("elastic").duration("1500").style("opacity", 1.0);
-    });
+            var s = localStorage.getItem("submitted");
+            if (s == "true") {
+                document.getElementById('submitWindow').style.display='block';
+                document.getElementById('fade').style.display='block';
+                document.body.style.overflow='hidden';
+                // console.log("Thanks for submitting!");
+                localStorage.setItem("submitted", "false");
+            }
+
+            $("#theme").click(function(){
+                $("#theme-tags").toggle("fast");
+            });
+            $("#sexuality").click(function(){
+                $("#sexuality-tags").toggle("fast");
+            });
+            $("#demographic").click(function(){
+                $("#demographic-tags").toggle("fast");
+            });
+            $("#experience").click(function(){
+                $("#experience-tags").toggle("fast");
+            });
+            $("#ages").click(function(){
+                $("#age-tags").toggle("fast");
+            });
+        });
     </script>
 </head>
 
@@ -119,7 +125,7 @@
             <div id='age-tags' style="display:none">
                 <ul>
                     {% for choice in age_choices %}
-                    <li><a href="javascript:void(0)" class = "tag" id = "{{choice.0}}" onclick="ageFilter('{{choice.0}}')">{{ choice.1 }}</a></li>
+                    <li><a href="javascript:void(0)" class = "tag" id = "{{choice.0}}" onclick="tagFilter('{{choice.0}}')">{{ choice.1 }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -147,6 +153,11 @@
         </div>
 
         <div id="aboutWindow" class="white_content">
+        </div>
+
+        <div id="submitWindow" class="white_content">
+            <h2 id="thanks">Thanks for sharing your story!</h2><br>
+            <p>You'll get an email when your submission has been posted. We'll contact you soon if there are any questions.</p>
         </div>
 
         <div id="fade" class="black_overlay"></div>
@@ -184,24 +195,38 @@
             document.getElementById('fade').style.display='block';
             document.body.style.overflow='hidden';
         }
-
         var newwindow;
         function pop(url)
         {
             nw=window.open(url,'name','height=400,width=800');
             if (window.focus) {nw.focus()}
         }
-
     </script>
 
     {% if all_stories %}
 
         <script>
-
             var currentStory;
             var selectedStories = [];
+            var stateShort = [];
+            var stateLong = [];
+            var countryShort = [];
+            var countryLong = [];
+        </script>
 
-         </script>
+        {% for choice in state_choices %}
+            <script>
+                stateShort[stateShort.length] = '{{choice.0}}' 
+                stateLong[stateLong.length] = '{{choice.1}}'
+            </script>
+        {% endfor %}
+
+        {% for choice in country_choices %}
+            <script>
+                countryShort[countryShort.length] = '{{choice.0}}' 
+                countryLong[countryLong.length] = '{{choice.1}}'
+            </script>
+        {% endfor %}
 
         <script src="{% static "js/storyWindow.js" %}"></script>
         <script src="{% static "js/tags.js" %}"></script>

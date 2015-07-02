@@ -141,7 +141,7 @@ h2 {
     letter-spacing: 0.03em;
 }
 
-#boxtitle {
+#boxtitle, #thanks {
 /*    font-family: 'Franklin Gothic Book',georgia, serif;*/
     font-family: 'PermanentMarker',georgia, serif;
     font-size: 30px;
@@ -453,6 +453,7 @@ a:hover{
     opacity:.80;
 /*    filter: alpha(opacity=80);*/
 }
+
 .white_content {
     display: none;
     position: fixed;

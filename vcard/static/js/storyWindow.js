@@ -5,12 +5,37 @@ document.getElementById("next").onclick = function() {
         currentStory = 1;
     }
 
+    if (selectedStories[currentStory - 1][4][0] == "N/A") {
+        city = '';
+    } else {
+        city = selectedStories[currentStory - 1][4][0] + ", ";
+    }
+
+    for (var j = 0; j < stateShort.length; j++) {
+        if (j == 1) {
+            state = '';
+        } else {
+            if (selectedStories[currentStory - 1][4][1] == stateShort[j]) {
+                state = stateLong[j] + ", ";
+            }
+        }
+    }
+
+    for (var j = 0; j < countryShort.length; j++) {
+        if (selectedStories[currentStory - 1][4][2] == 'US') {
+            country = 'USA';
+        } else {
+            if (selectedStories[currentStory - 1][4][2] == countryShort[j]) {
+                country = countryLong[j];
+            }
+        }
+    }
     // console.log(currentStory);
     
     document.getElementById("boxtitle").innerHTML = selectedStories[currentStory - 1][3];
     document.getElementById("story").innerHTML = selectedStories[currentStory - 1][1];
     document.getElementById("name").innerHTML = "By " + selectedStories[currentStory - 1][2];
-    document.getElementById("place").innerHTML = selectedStories[currentStory - 1][4];
+    document.getElementById("place").innerHTML = city + state + country;
     document.getElementById("count").innerHTML = "Story " + (currentStory) + " of " + selectedStories.length;
 }
 
@@ -21,12 +46,39 @@ document.getElementById("back").onclick = function() {
         currentStory = selectedStories.length;
     }
 
+    if (selectedStories[currentStory - 1][4][0] == "N/A") {
+        city = '';
+    } else {
+        city = selectedStories[currentStory - 1][4][0] + ", ";
+    }
+
+
+    for (var j = 0; j < stateShort.length; j++) {
+        if (j == 1) {
+            state = '';
+        } else {
+            if (selectedStories[currentStory - 1][4][1] == stateShort[j]) {
+                state = stateLong[j] + ", ";
+            }
+        }
+    }
+
+    for (var j = 0; j < countryShort.length; j++) {
+        if (selectedStories[currentStory - 1][4][2] == 'US') {
+            country = 'USA';
+        } else {
+            if (selectedStories[currentStory - 1][4][2] == countryShort[j]) {
+                country = countryLong[j];
+            }
+        }
+    }
+
     // console.log(currentStory);
     
     document.getElementById("boxtitle").innerHTML = selectedStories[currentStory - 1][3];
     document.getElementById("story").innerHTML = selectedStories[currentStory - 1][1];
     document.getElementById("name").innerHTML = "By " + selectedStories[currentStory - 1][2];
-    document.getElementById("place").innerHTML = selectedStories[currentStory - 1][4];
+    document.getElementById("place").innerHTML = city + state + country;
     document.getElementById("count").innerHTML = "Story " + (currentStory) + " of " + selectedStories.length;
 }
 
@@ -35,6 +87,7 @@ document.getElementById("close").onclick = function() {
 
     document.getElementById('light').style.display='none';
     document.getElementById('aboutWindow').style.display='none';
+    document.getElementById('submitWindow').style.display='none';
     document.getElementById('scrollbuttons').style.display='none';
     document.getElementById('closeAbout').style.display='none';
     document.getElementById('fade').style.display='none';
@@ -69,6 +122,7 @@ window.document.onkeydown = function(e) {
     if (e.keyCode == 27) {
         document.getElementById('light').style.display='none';
         document.getElementById('aboutWindow').style.display='none';
+        document.getElementById('submitWindow').style.display='none';
         document.getElementById('scrollbuttons').style.display='none';
         document.getElementById('closeAbout').style.display='none';
         document.getElementById('fade').style.display='none';
