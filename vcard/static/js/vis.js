@@ -52,9 +52,6 @@ function startForce() {
 					var splitID = toLink[i].split("d");
 					var realID = splitID[1];
 
-					// console.log(realID);
-					// console.log(nodes);
-
 					if (realID === nodes[j].id) {
 						//add to temp nodes list
 						tempNodes[tempNodes.length] = j;
@@ -62,7 +59,6 @@ function startForce() {
 				}
 			}
 		}
-		// console.log("temp nodes: " + tempNodes);
 
 		for (var i = 0; i < tempNodes.length; i++) {
 			links.push({source: tempNodes[i], target: tempNodes[Math.floor(Math.random() * tempNodes.length)]});
@@ -102,7 +98,6 @@ function startForce() {
 			if (realID.indexOf(ids[i]) > -1) {
 
 				if (d3.select(this).attr("r") <= width/150) {
-					console.log(d3.select(this).attr("r"));
 					d3.select(this).attr("r", width/130);
 				} else if (d3.select(this).attr("r") >= width/100) {
 					d3.select(this).attr("r", width/90);
@@ -112,6 +107,9 @@ function startForce() {
 			}
 		}
 	}).on("click", function(d, i) {
+
+			document.getElementById("back").style.visibility = 'visible';
+            document.getElementById("next").style.visibility = 'visible';
 
 		    document.getElementById('light').style.display='block';
             document.getElementById('scrollbuttons').style.display='block';

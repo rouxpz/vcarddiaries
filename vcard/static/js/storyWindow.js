@@ -30,7 +30,6 @@ document.getElementById("next").onclick = function() {
             }
         }
     }
-    // console.log(currentStory);
     
     document.getElementById("boxtitle").innerHTML = selectedStories[currentStory - 1][3];
     document.getElementById("story").innerHTML = selectedStories[currentStory - 1][1];
@@ -72,8 +71,6 @@ document.getElementById("back").onclick = function() {
             }
         }
     }
-
-    // console.log(currentStory);
     
     document.getElementById("boxtitle").innerHTML = selectedStories[currentStory - 1][3];
     document.getElementById("story").innerHTML = selectedStories[currentStory - 1][1];
@@ -83,6 +80,7 @@ document.getElementById("back").onclick = function() {
 }
 
 document.getElementById("close").onclick = function() {
+
     var c = $("#canvas");
 
     document.getElementById('light').style.display='none';
@@ -92,11 +90,11 @@ document.getElementById("close").onclick = function() {
     document.getElementById('closeAbout').style.display='none';
     document.getElementById('fade').style.display='none';
     document.body.style.overflow='auto';
+    document.getElementById("back").style.visibility = 'hidden';
+    document.getElementById("next").style.visibility = 'hidden';
 
-    // allTags = [];
     selectedStories = [];
-    // allTagsText = [];
-    // document.getElementById("selected-tags").innerHTML = "";
+
     document.getElementById("storyinfo").innerHTML = "";
     textarea.value = '';
     document.getElementById("theme").value = "none";
@@ -109,17 +107,14 @@ document.getElementById("close").onclick = function() {
     document.getElementById("place").innerHTML = "";
     document.getElementById("count").innerHTML = "";
 
-    // for (var i = 0; i < ids.length; i++) {
-    //         document.getElementById('id' + ids[i]).style.fill = "";
-    //         document.getElementById('id' + ids[i]).setAttribute("r", c.width()/150);
-    // }
-}
+};
 
 window.document.onkeydown = function(e) {
     var c = $("#canvas");
 
     if (!e) e = event;
     if (e.keyCode == 27) {
+
         document.getElementById('light').style.display='none';
         document.getElementById('aboutWindow').style.display='none';
         document.getElementById('submitWindow').style.display='none';
@@ -127,11 +122,11 @@ window.document.onkeydown = function(e) {
         document.getElementById('closeAbout').style.display='none';
         document.getElementById('fade').style.display='none';
         document.body.style.overflow='auto';
+        document.getElementById("back").style.visibility = 'hidden';
+        document.getElementById("next").style.visibility = 'hidden';
 
-        // allTags = [];
         selectedStories = [];
-        // allTagsText = [];
-        // document.getElementById("selected-tags").innerHTML = "";
+
         document.getElementById("storyinfo").innerHTML = "";
         textarea.value = '';
         document.getElementById("theme").value = "none";
@@ -144,10 +139,6 @@ window.document.onkeydown = function(e) {
         document.getElementById("place").innerHTML = "";
         document.getElementById("count").innerHTML = "";
 
-        // for (var i = 0; i < ids.length; i++) {
-        //     document.getElementById('id' + ids[i]).style.fill = "";
-        //     document.getElementById('id' + ids[i]).setAttribute("r", c.width()/150);
-        // }
     }
 
 };

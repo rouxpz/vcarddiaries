@@ -17,7 +17,7 @@ function loadJSON(url, callback) {
         if (json.readyState == 4 && json.status == 200) {
             var myArr = JSON.parse(json.responseText);
             for (var i = 0; i < myArr.length; i++) {
-                // console.log(myArr.length);
+
                 ids[ids.length] = myArr[i].pk;
                 storytexts[storytexts.length] = myArr[i].fields.text;
                 names[names.length] = myArr[i].fields.name;
@@ -51,17 +51,13 @@ function loadJSON(url, callback) {
                 }
 
                 tag_list[tag_list.length] = myArr[i].fields.age;
-
                 tags[tags.length] = tag_list;
-                console.log(tag_list);
 
                 for (var j = 0; j < storytexts.length; j++) {
                     storytexts[j] = storytexts[j].replace('\r\n', ' ');
-                    // console.log(storytexts[j]);
                 }
             }
             if (typeof callback == "function") {
-                // apply() sets the meaning of "this" in the callback
                 callback.apply(json);
       }
         }
@@ -69,7 +65,6 @@ function loadJSON(url, callback) {
 
     json.open("GET", url, true);
     json.send();
-    // console.log("json loaded");
 };
 
 loadJSON(url, startForce);

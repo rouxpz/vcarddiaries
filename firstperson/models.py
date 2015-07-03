@@ -23,8 +23,8 @@ class Tag(models.Model):
 
 class Story(models.Model):
 	AGE_CHOICES = (
-		("ETE", "Early teens (Under 14)"),
-		("LTE", "High school (14-18)"),
+		("ETE", "Early teens (16 and under)"),
+		("LTE", "Late teens (17-19)"),
 		("ETW", "Early 20s"),
 		("LTW", "Late 20s"),
 		("ETR", "Early 30s"),
@@ -99,7 +99,7 @@ class Story(models.Model):
 					("AD", "Andorra"),
 					("AG", "Angola"),
 					("AI", "Anguilla"),
-					("AG", "Antigua &amp; Barbuda"),
+					("AG", "Antigua & Barbuda"),
 					("AR", "Argentina"),
 					("AA", "Armenia"),
 					("AW", "Aruba"),
@@ -121,7 +121,7 @@ class Story(models.Model):
 					("BA", "Bosnia & Herzegovina"),
 					("BW", "Botswana"),
 					("BR", "Brazil"),
-					("BC", "British Indian Ocean Ter"),
+					("BC", "British Indian Ocean Territories"),
 					("BN", "Brunei"),
 					("BG", "Bulgaria"),
 					("BF", "Burkina Faso"),
@@ -169,7 +169,7 @@ class Story(models.Model):
 					("FR", "France"),
 					("GF", "French Guiana"),
 					("PF", "French Polynesia"),
-					("FS", "French Southern Ter"),
+					("FS", "French Southern Territories"),
 					("GA", "Gabon"),
 					("GM", "Gambia"),
 					("GE", "Georgia"),
@@ -318,7 +318,7 @@ class Story(models.Model):
 					("TN", "Tunisia"),
 					("TR", "Turkey"),
 					("TU", "Turkmenistan"),
-					("TC", "Turks & Caicos Is"),
+					("TC", "Turks & Caicos Islands"),
 					("TV", "Tuvalu"),
 					("UG", "Uganda"),
 					("UA", "Ukraine"),
@@ -334,7 +334,7 @@ class Story(models.Model):
 					("VB", "Virgin Islands (Brit)"),
 					("VA", "Virgin Islands (USA)"),
 					("WK", "Wake Island"),
-					("WF", "Wallis & Futana Is"),
+					("WF", "Wallis & Futana Islands"),
 					("YE", "Yemen"),
 					("ZR", "Zaire"),
 					("ZM", "Zambia"),
@@ -350,7 +350,7 @@ class Story(models.Model):
 	sex_tags = models.ManyToManyField(Tag, related_name="sexuality", blank = True)
 	theme_tags = models.ManyToManyField(Tag, related_name="themes", blank = True)
 	experience_tags = models.ManyToManyField(Tag, related_name="experiences", blank=True)
-	city = models.CharField(max_length=30, default="N/A")
+	city = models.CharField(max_length=30, default="")
 	state = models.CharField(max_length=2, choices=STATE_CHOICES, default="")
 	country = models.CharField(max_length=2, choices=COUNTRY_CHOICES, default="")
 	definition = models.TextField(max_length=130) # of virginity

@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from firstperson.models import *
 from firstperson.forms import StoryForm
 from django.core import serializers
+from django.core.mail import send_mail
 
 import html5lib
 import django_wysiwyg
@@ -51,6 +52,7 @@ def submit(request):
 			post = '#VirginityIs ' + form.definition
 			api.PostUpdate(post)
 			# form.save()
+			send_mail('New V-Card Diaries Submission!', 'Hi Therese!\n\nYou have a new V-Card Diaries submission. Please log in to approve or reject it.\n\nFrom: ' + form.name + '\nSubmitted on: ' + str(form.date) + '\n\nThanks!', os.environ['EMAIL_ADDRESS'], os.environ['THERESE_EMAIL'], fail_silently=False)
 			return HttpResponseRedirect('/stories/')
 
 		else:

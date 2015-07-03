@@ -141,7 +141,7 @@ h2 {
     letter-spacing: 0.03em;
 }
 
-#boxtitle, #thanks {
+.boxtitle {
 /*    font-family: 'Franklin Gothic Book',georgia, serif;*/
     font-family: 'PermanentMarker',georgia, serif;
     font-size: 30px;
@@ -242,7 +242,6 @@ li, ul {
     float:right;
     margin-right: 2% !important;
     margin-top:20%;
-
 }
 
 #back {
@@ -511,6 +510,10 @@ p {
     margin-top: 0px;
     margin-bottom: 5px;
     padding:0px;
+}
+
+.aboutText {
+    font-size: 16px;
 }
 
 .footer {
