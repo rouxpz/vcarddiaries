@@ -6,6 +6,9 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}"/>
     <link rel="shortcut icon" type="image/png" href="{% static "favicon.ico"%}"/>
     <script src="{% static "js/jquery-1.11.3.min.js" %}"></script>
+    <script src="{% static "js/d3.min.js" %}"></script>
+    <script src="{% static "js/vis.js" %}"></script>
+    <script src="{% static "js/loadData.js" %}"></script>
     <script>
         $(document).ready(function(){
 
@@ -40,7 +43,6 @@
 <!-- email notifications on posting  -->
 
 <body>
-    <script src="{% static "js/d3.min.js" %}"></script>
     <div id="fullbody">
         <!--     Header -->
         <div id="header">
@@ -62,8 +64,6 @@
         <div class="container">
             {% if all_stories %}
 
-                <script src="{% static "js/vis.js" %}"></script>
-                <script src="{% static "js/loadData.js" %}"></script>
 
             {% else %}
                 <p>No stories are available.</p>
@@ -104,17 +104,6 @@
                 <ul>
                 {% for tag in all_tags %}
                     {% if tag.tagtype == "Demographic"%}
-                        <li><a href="javascript:void(0)" class = "tag" id = "tag{{tag.id}}" onclick="tagFilter('tag{{tag.id}}')">{{ tag.name }}</a></li>
-                    {%endif%}
-                {% endfor %}
-                </ul>
-            </div><br>
-
-            <a href="javascript:void(0)" class="category" id="experience">E X P E R I E N C E S</a>
-            <div id='experience-tags' style="display:none">
-                <ul>
-                {% for tag in all_tags %}
-                    {% if tag.tagtype == "Experiences"%}
                         <li><a href="javascript:void(0)" class = "tag" id = "tag{{tag.id}}" onclick="tagFilter('tag{{tag.id}}')">{{ tag.name }}</a></li>
                     {%endif%}
                 {% endfor %}

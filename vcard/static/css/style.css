@@ -242,12 +242,14 @@ li, ul {
     float:right;
     margin-right: 2% !important;
     margin-top:20%;
+    visibility: hidden;
 }
 
 #back {
     float:left;
     margin-left: 2% !important;
     margin-top:20%;
+    visibility: hidden;
 }
 
 #close, #close2 {

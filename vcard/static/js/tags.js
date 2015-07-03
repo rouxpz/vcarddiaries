@@ -30,13 +30,16 @@ document.getElementById("searchButton").onclick = function() {
     for (var i = 0; i < storytexts.length; i++) {
         var lowerstory = storytexts[i].toLowerCase();
         if (lowerstory.indexOf(inputText) > -1) {
-
             var selector = "circle[id='id" + ids[i] +"']"; 
             var selectedCircle = d3.select(selector);
-            selectedCircle.transition().attr("r", c.width()/100).style("fill", "#FFE066");
+            var c = $("#canvas");
+            selectedCircle.transition().style("fill", "#FFE066");
+            toLink[toLink.length] = 'id' + ids[i];
         } else {
-            document.getElementById('id' + ids[i]).style.fill = "";
-            document.getElementById('id' + ids[i]).setAttribute("r", c.width()/150);
+            var selector = "circle[id='id" + ids[i] +"']"; 
+            var selectedCircle = d3.select(selector);
+            var c = $("#canvas");
+            selectedCircle.transition().style("fill", "");
         }
     }
 };
@@ -56,7 +59,7 @@ document.getElementById("clear").onclick = function() {
     for (var i = 0; i < ids.length; i++) {
         var selector = "circle[id='id" + ids[i] +"']";
         var selectedCircle = d3.select(selector);
-        selectedCircle.transition().attr("r", c.width()/150).style("fill", "").attr("class", "node");
+        selectedCircle.transition().style("fill", "").attr("class", "node");
     }
 }
 

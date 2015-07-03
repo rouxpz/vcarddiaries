@@ -26,19 +26,22 @@ function startForce() {
 	    .links(links)
 	    .start();
 
-	var link = svg.selectAll('.link')
+	svg.append("g").attr("class", "links");
+    svg.append("g").attr("class", "nodes");
+
+	var link = svg.select(".links").selectAll('.link')
 	    .data(links)
 	    .enter().append('line')
 	    .attr('class', 'link');
 
-	var node = svg.selectAll('.node')
+	var node = svg.select(".nodes").selectAll('.node')
 	    .data(nodes)
 	    .enter().append('circle')
 	    .attr('class', 'node')
 	    .attr('r', width/150)
     	.attr('id', function(d, i) { return "id" + nodes[i].id; });
 
-    d3.selectAll(".tag").on("click", function() {
+    d3.selectAll(".tag, #searchButton").on("click", function() {
     	link.remove();
 		links = [];
 		force.links(links);
@@ -64,7 +67,7 @@ function startForce() {
 			links.push({source: tempNodes[i], target: tempNodes[Math.floor(Math.random() * tempNodes.length)]});
 		};
 
-        link = svg.selectAll('.link')
+        link = svg.select(".links").selectAll('.link')
         	.data(links)
 			.enter().append("line")
             .attr("class", "link");
@@ -82,12 +85,12 @@ function startForce() {
 	});
 
     force.on('tick', function() {
-    	node.attr("cx", function(d) { return d.x; })
-     		.attr("cy", function(d) { return d.y; });
-     	link.attr("x1", function(d) { return d.source.x; })
+    	link.attr("x1", function(d) { return d.source.x; })
 		    .attr("y1", function(d) { return d.source.y; })
 		    .attr("x2", function(d) { return d.target.x; })
 		    .attr("y2", function(d) { return d.target.y; });
+    	node.attr("cx", function(d) { return d.x; })
+     		.attr("cy", function(d) { return d.y; });
     });
 
 	d3.selectAll("circle").on("mouseover", function(d, i) {
@@ -97,11 +100,7 @@ function startForce() {
 		for (var i = 0; i < ids.length; i++) {
 			if (realID.indexOf(ids[i]) > -1) {
 
-				if (d3.select(this).attr("r") <= width/150) {
-					d3.select(this).attr("r", width/130);
-				} else if (d3.select(this).attr("r") >= width/100) {
-					d3.select(this).attr("r", width/90);
-				}
+				d3.select(this).attr("r", width/130);
 
 				document.getElementById("storyinfo").innerHTML = "</br><h2 id=\"title\">" + titles[i] +  "</h2><p class=\"nameInfo\"> " + names[i] + "</p></br>";
 			}
@@ -173,11 +172,8 @@ function startForce() {
                 }
             } 
 	}).on("mouseout", function(d, i) {
-		if (d3.select(this).attr("r") <= width/130) {
-			d3.select(this).attr("r", width/150);
-		} else if (d3.select(this).attr("r") >= width/90) {
-			d3.select(this).attr("r", width/100);
-		}
+
+		d3.select(this).attr("r", width/150);
 		document.getElementById("storyinfo").innerHTML = "";
 	});
 
@@ -198,13 +194,13 @@ function selectEntries(selection) {
 			var selector = "circle[id='id" + ids[i] +"']"; 
         	var selectedCircle = d3.select(selector);
         	var c = $("#canvas");
-        	selectedCircle.transition().attr("r", c.width()/100).style("fill", "#FFE066");
+        	selectedCircle.transition().style("fill", "#FFE066");
         	toLink[toLink.length] = 'id' + ids[i];
 		} else {
 			var selector = "circle[id='id" + ids[i] +"']"; 
         	var selectedCircle = d3.select(selector);
         	var c = $("#canvas");
-        	selectedCircle.transition().attr("r", c.width()/150).style("fill", "");
+        	selectedCircle.transition().style("fill", "");
 		}
 
 	}
