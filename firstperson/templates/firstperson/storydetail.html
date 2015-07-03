@@ -1,3 +1,35 @@
-{% if story %}
-{{story.text}}
-{% endif %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% load staticfiles %}
+    <title>The V-Card Diaries</title>
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}"/>
+</head>
+<body>
+	<div id="storyDetailContent">
+		<a href="http://vcarddiaries.com"><img src="{% static "img/cherry.jpg" %}" width="80"></img>
+		<h1 class="siteName">the v-card diaries</h1></a><br><br><br>
+		{% if story %}
+		<h2 class="boxtitle">{{story.title}}</h2><br>
+		<p id="detailName"> By {{story.name}}</p>
+		{% for choice in age_choices %}
+			{% if story.age == choice.0 %}
+				<p><strong>Age range:</strong> {{choice.1}}</p>
+			{% endif %}
+		{% endfor %}
+
+		{% for s in state_choices %}
+			{% for c in country_choices %}
+				{% if story.state == s.0 and s.0 != "N/A" %}
+					{% if story.country == c.0 %}
+						<p><strong>Location:</strong> {{story.city}} {{s.1}} {{c.1}}</p><br>
+					{% endif %}{% endif %}
+				{% endfor %}
+		{% endfor %}
+
+		{{story.text}}
+		{% endif %}
+		<br><br>
+		<em>Read more tales of sexual debuts and deferrals at <a href="http://vcarddiaries.com" class="detailText">The V-Card Diaries</a></em>
+	</div>
+</body>

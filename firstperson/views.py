@@ -36,7 +36,13 @@ def storyindex(request):
 
 def storydetail(request, story_id):
 	story = Story.objects.get(id=story_id)
-	context = {'story': story,}
+	age_choices = Story.AGE_CHOICES
+	state_choices = Story.STATE_CHOICES
+	country_choices = Story.COUNTRY_CHOICES
+	context = {'story': story,
+			'age_choices': age_choices,
+			'state_choices': state_choices,
+			'country_choices': country_choices,}
 
 	return render(request, 'firstperson/storydetail.html', context)
 

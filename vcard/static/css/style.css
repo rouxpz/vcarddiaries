@@ -164,7 +164,7 @@ h2 {
     font-size:16px;
 }
 
-#name {
+#name, #detailName {
     font-family: 'FrankGotMed', Arial;
     font-size: 18px;
     color:#cd1d38;
@@ -514,7 +514,7 @@ p {
     padding:0px;
 }
 
-.aboutText {
+.aboutText, .detailText {
     font-size: 16px;
 }
 
@@ -550,4 +550,19 @@ p {
 
 .fineprint {
     font-size: 12px;
+}
+
+#storyDetailContent {
+    margin:5%;
+}
+
+.siteName {
+    display: inline-block;
+    text-align: left;
+    font-family: 'FrankGotRom', Arial;
+    font-weight: bold;
+    font-size:32px;
+    color:#cd1d38;
+    letter-spacing: 0em;
+    padding-left: 10px;
 }
