@@ -1,4 +1,5 @@
 var toLink = [];
+var city, state, country;
 
 function startForce() {
 	var width = 1000;
@@ -110,10 +111,7 @@ function startForce() {
 			document.getElementById("back").style.visibility = 'visible';
             document.getElementById("next").style.visibility = 'visible';
 
-		    document.getElementById('light').style.display='block';
-            document.getElementById('scrollbuttons').style.display='block';
-            document.getElementById('fade').style.display='block';
-            document.body.style.overflow='hidden';
+            openWindow('light');
 
             var splitID = this.id.split("d");
 			var realID = splitID[1];
@@ -135,40 +133,9 @@ function startForce() {
             for (var i = 0; i < selectedStories.length; i++){
                 if (selectedStories[i][0] == realID) {
 
-                	var city, state, country;
-
-                	if (selectedStories[i][4][0] == "N/A") {
-                		city = '';
-                	} else {
-                		city = selectedStories[i][4][0] + ", ";
-                	}
-
-                	for (var j = 0; j < stateShort.length; j++) {
-                		if (j == 1) {
-                			state = '';
-                		} else {
-	                		if (selectedStories[i][4][1] == stateShort[j]) {
-	                			state = stateLong[j] + ", ";
-	                		}
-	                	}
-                	}
-
-                	for (var j = 0; j < countryShort.length; j++) {
-                		if (selectedStories[i][4][2] == 'US') {
-                			country = 'USA';
-                		} else {
-	                		if (selectedStories[i][4][2] == countryShort[j]) {
-	                			country = countryLong[j];
-	                		}
-	                	}
-                	}
-
                     currentStory = i + 1;
-                    document.getElementById("boxtitle").innerHTML = selectedStories[i][3];
-                    document.getElementById("story").innerHTML = selectedStories[i][1];
-                    document.getElementById("name").innerHTML = "By " + selectedStories[i][2];
-                    document.getElementById("place").innerHTML = city + state + country;
-                    document.getElementById("count").innerHTML = "Story " + currentStory + " of " + selectedStories.length;
+                    populateStoryWindow(selectedStories[i], selectedStories);
+                    populateSocial(selectedStories[i]);
                 }
             } 
 	}).on("mouseout", function(d, i) {
@@ -233,3 +200,58 @@ function containsAll(specificTags, allTags) {
 	return true;
 
 }
+
+function openWindow(windowID) {
+
+	document.getElementById(windowID).style.display='block';
+    document.getElementById('scrollbuttons').style.display='block';
+    document.getElementById('fade').style.display='block';
+    document.body.style.overflow='hidden';
+
+};
+
+function populateStoryWindow(selection, totalStories) {
+
+	if (selectedStories[currentStory - 1][4][0] == "N/A") {
+        city = '';
+    } else {
+        city = selectedStories[currentStory - 1][4][0] + ", ";
+    }
+
+    for (var j = 0; j < stateShort.length; j++) {
+        if (j == 1) {
+            state = '';
+        } else {
+            if (selectedStories[currentStory - 1][4][1] == stateShort[j]) {
+                state = stateLong[j] + ", ";
+            }
+        }
+    }
+
+    for (var j = 0; j < countryShort.length; j++) {
+        if (selectedStories[currentStory - 1][4][2] == 'US') {
+            country = 'USA';
+        } else {
+            if (selectedStories[currentStory - 1][4][2] == countryShort[j]) {
+                country = countryLong[j];
+            }
+        }
+    }
+
+	document.getElementById("boxtitle").innerHTML = selection[3];
+    document.getElementById("story").innerHTML = selection[1];
+    document.getElementById("name").innerHTML = "By " + selection[2];
+    document.getElementById("place").innerHTML = city + state + country;
+    document.getElementById("count").innerHTML = "Story " + currentStory + " of " + totalStories.length;
+
+};
+
+function populateSocial(selection) {
+	var toReplace = selection[3];
+	var titleText = toReplace.replace(' ', '+');
+	var tumblrDescription = "A story from the V-Card Diaries: Tales of Sexual Debuts and Deferrals"
+	document.getElementById("facebook").href = "javascript:pop(\"https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fvcarddiaries.com/stories/" + selection[0] + "\")";
+	document.getElementById("twitter").href = "javascript:pop(\"https://twitter.com/intent/tweet?url=http://vcarddiaries.com/stories/" + selection[0] + "&text=" + titleText + "&via=VCardDiaries\")";
+	document.getElementById("tumblr").href = "javascript:pop(\"http://www.tumblr.com/share/link?url=http://vcarddiaries.com/stories/" + selection[0] + "&name=" + selection[3] + "&description=" + tumblrDescription + "\")";
+	document.getElementById("reddit").href = "javascript:pop(\"http://reddit.com/submit?url=http://vcarddiaries.com/stories/" + selection[0] + "&title=" + selection[3] + "\")";
+};

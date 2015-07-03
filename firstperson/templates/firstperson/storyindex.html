@@ -14,10 +14,7 @@
 
             var s = localStorage.getItem("submitted");
             if (s == "true") {
-                document.getElementById('submitWindow').style.display='block';
-                document.getElementById('scrollbuttons').style.display='block';
-                document.getElementById('fade').style.display='block';
-                document.body.style.overflow='hidden';
+                openWindow('submitWindow');
                 localStorage.setItem("submitted", "false");
             }
 
@@ -130,14 +127,15 @@
             <p id="place"></p><br>
             <p id="count"></p><br>
 
-            <a href=javascript:pop("https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fvcarddiaries.com")><img src="{% static "img/facebook-share.png" %}" width="30" class="social"></img></a>
-            <a href=javascript:pop("https://twitter.com/intent/tweet?url=vcarddiaries.com&text=Stories+of+sexual+debuts+and+deferrals&via=VCardDiaries")><img src="{% static "img/twitter-share.png" %}" width="30" class="social"></img></a>
-            <a href=javascript:pop("http://www.tumblr.com/share/link?url=vcarddiaries.com&name=test&description=test")><img src="{% static "img/tumblr-share.png" %}" width="30" class="social"></img></a>
-            <a href=javascript:pop("http://reddit.com/submit?url=http://vcarddiaries.com&title=test")><img src="{% static "img/reddit-share.png" %}" width="30" class="social"></img></a>
+            <a href="#" id="facebook"><img src="{% static "img/facebook-share.png" %}" width="30" class="social"></img></a>
+            <a href="#" id="twitter"><img src="{% static "img/twitter-share.png" %}" width="30" class="social"></img></a>
+            <a href="#" id="tumblr"><img src="{% static "img/tumblr-share.png" %}" width="30" class="social"></img></a>
+            <a href="#" id="reddit"><img src="{% static "img/reddit-share.png" %}" width="30" class="social"></img></a>
 
             <br><br>
 
             <p id="story"></p><br>
+            <!-- <p hidden id="storyID"></p> -->
 
         </div>
 
@@ -176,24 +174,6 @@
             <a href = "javascript:void(0)" id = "next"><img src="{% static "img/right.png" %}" width="100"/></a>
             <a href = "javascript:void(0)" id="close"><img src="{% static "img/close.png" %}" width="75"/></a>
     </div>
-
-    <div id="closeAbout">
-    </div>
-
-    <script>
-        document.getElementById("about").onclick = function() {
-            document.getElementById('aboutWindow').style.display='block';
-            document.getElementById('scrollbuttons').style.display='block';
-            document.getElementById('fade').style.display='block';
-            document.body.style.overflow='hidden';
-        }
-        var newwindow;
-        function pop(url)
-        {
-            nw=window.open(url,'name','height=400,width=800');
-            if (window.focus) {nw.focus()}
-        }
-    </script>
 
     {% if all_stories %}
 
