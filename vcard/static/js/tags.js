@@ -11,11 +11,12 @@ function tagFilter(tagID) {
             var split = tagID.split("g");
             allTags[allTags.length] = split[1];
         } else {
-            allTags[allTags.length] = tagID;
+            allAges[allAges.length] = tagID;
+            // allTags[allTags.length] = tagID;
         }
 
         allTagsText[allTagsText.length] = t.text;
-        selectEntries(allTags);
+        selectEntries(allTags, allAges);
 
         document.getElementById("selected-tags").innerHTML = "<strong>selected:</strong><br>" + allTagsText.join("<br> ");
     }
@@ -30,16 +31,10 @@ document.getElementById("searchButton").onclick = function() {
     for (var i = 0; i < storytexts.length; i++) {
         var lowerstory = storytexts[i].toLowerCase();
         if (lowerstory.indexOf(inputText) > -1) {
-            var selector = "circle[id='id" + ids[i] +"']"; 
-            var selectedCircle = d3.select(selector);
-            var c = $("#canvas");
-            selectedCircle.transition().style("fill", "#FFE066");
+            highlightCircle(ids[i]);
             toLink[toLink.length] = 'id' + ids[i];
         } else {
-            var selector = "circle[id='id" + ids[i] +"']"; 
-            var selectedCircle = d3.select(selector);
-            var c = $("#canvas");
-            selectedCircle.transition().style("fill", "");
+            darkenCircle(ids[i]);
         }
     }
 };
@@ -48,6 +43,7 @@ var textarea = document.querySelector('#search');
 
 document.getElementById("clear").onclick = function() {
     allTags = [];
+    allAges = [];
     selectedStories = [];
     allTagsText = [];
     var c = $("#canvas");

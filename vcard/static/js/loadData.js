@@ -4,8 +4,10 @@ var names = [];
 var titles = [];
 var places = [];
 var tags = [];
+var ages = [];
 
 var allTags = [];
+var allAges = [];
 var allTagsText = [];
 
 var url = "/stories/api_search";
@@ -50,7 +52,7 @@ function loadJSON(url, callback) {
                     tag_list[tag_list.length] = raw_exp_tags[j];
                 }
 
-                tag_list[tag_list.length] = myArr[i].fields.age;
+                ages[ages.length] = myArr[i].fields.age;
                 tags[tags.length] = tag_list;
 
                 for (var j = 0; j < storytexts.length; j++) {

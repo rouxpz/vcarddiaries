@@ -179,7 +179,7 @@ function startForce() {
 
 };
 
-function selectEntries(selection) {
+function selectEntries(selection, allAges) {
 
 	for (var i = 0; i < tags.length; i++) {
 		var parsedTags = [];
@@ -190,21 +190,36 @@ function selectEntries(selection) {
 
 		var contains = containsAll(selection, parsedTags);
 
-		if (contains != false) {
-			var selector = "circle[id='id" + ids[i] +"']"; 
-        	var selectedCircle = d3.select(selector);
-        	var c = $("#canvas");
-        	selectedCircle.transition().style("fill", "#FFE066");
+		if (contains != false && allAges.length > 0) {
+			if (allAges.indexOf(ages[i]) != -1) {
+				highlightCircle(ids[i]);
+	        	toLink[toLink.length] = 'id' + ids[i];
+	        } else {
+	        	darkenCircle(ids[i]);
+	        }
+		} else if (contains != false && allAges.length <= 0) {
+			highlightCircle(ids[i]);
         	toLink[toLink.length] = 'id' + ids[i];
 		} else {
-			var selector = "circle[id='id" + ids[i] +"']"; 
-        	var selectedCircle = d3.select(selector);
-        	var c = $("#canvas");
-        	selectedCircle.transition().style("fill", "");
+			darkenCircle(ids[i]);
 		}
 
 	}
 
+};
+
+function highlightCircle(circleID) {
+	var selector = "circle[id='id" + circleID +"']"; 
+	var selectedCircle = d3.select(selector);
+	var c = $("#canvas");
+	selectedCircle.transition().style("fill", "#FFE066");
+};
+
+function darkenCircle(circleID) {
+	var selector = "circle[id='id" + circleID +"']"; 
+	var selectedCircle = d3.select(selector);
+	var c = $("#canvas");
+	selectedCircle.transition().style("fill", "");
 };
 
 function containsAll(specificTags, allTags) {
