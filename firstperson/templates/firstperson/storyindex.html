@@ -12,9 +12,9 @@
             var s = localStorage.getItem("submitted");
             if (s == "true") {
                 document.getElementById('submitWindow').style.display='block';
+                document.getElementById('scrollbuttons').style.display='block';
                 document.getElementById('fade').style.display='block';
                 document.body.style.overflow='hidden';
-                // console.log("Thanks for submitting!");
                 localStorage.setItem("submitted", "false");
             }
 
@@ -136,7 +136,7 @@
 
         <div id="light" class="white_content">
 
-            <h2 id="boxtitle"></h2><br>
+            <h2 id="boxtitle" class="boxtitle"></h2><br>
             <p id="name"></p>
             <p id="place"></p><br>
             <p id="count"></p><br>
@@ -153,14 +153,14 @@
         </div>
 
         <div id="aboutWindow" class="white_content">
-            <h2>about the v-card diaries</h2><br>
-            <p>The V-Card Diaries is a crowd-sourced interactive story-sharing site where everyone can access and share stories about their sexual lives in total anonymity. The site was inspired by the many stories we received from people who have seen our documentary How To Lose Your Virginity or follow the blog. Join us in telling this collective story about becoming sexual - and in the radical act of speaking honestly about it. Get more information about this project here or contact Therese directly.</p><br>
+            <h2 class="boxtitle">about the v-card diaries</h2><br>
+            <p class="aboutText">The V-Card Diaries is a crowd-sourced interactive story-sharing site where everyone can access and share stories about their sexual lives in total anonymity. The site was inspired by the many stories we received from people who have seen our documentary How To Lose Your Virginity or follow the blog. Join us in telling this collective story about becoming sexual - and in the radical act of speaking honestly about it. Get more information about this project here or contact Therese directly.</p><br>
 
-            <p>The site was initially developed in 2013 at the <a href="http://www.pbs.org/pov/blog/povdocs/2013/01/pov-hackathon-2-view-eight-web-storytelling-prototypes/9/POV Hackathon" target="_blank">POV Hackathon</a> by <a href="http://trixiefilms.com" target="_blank">Therese Shechter</a>, <a href="https://www.linkedin.com/in/smmelendez" target="_blank">Steven Melendez</a>, <a href="https://www.linkedin.com/pub/ellice-litwak/b7/2b6/56" target="_blank">Ellice Litwak</a> and <a href="http://www.vanessajoho.com" target="_blank">Vanessa Joho</a>. It was updated and relaunched in 2015 by <a href="http://trixiefilms.com" target="_blank">Therese Shechter</a> and <a href="http://rouxpz.com" target="_blank">Roopa Vasudevan</a>.</p>
+            <p class="aboutText">The site was initially developed in 2013 at the <a href="http://www.pbs.org/pov/blog/povdocs/2013/01/pov-hackathon-2-view-eight-web-storytelling-prototypes/9/POV Hackathon" class="aboutText" target="_blank">POV Hackathon</a> by <a href="http://trixiefilms.com" class="aboutText" target="_blank">Therese Shechter</a>, <a href="https://www.linkedin.com/in/smmelendez" class="aboutText" target="_blank">Steven Melendez</a>, <a href="https://www.linkedin.com/pub/ellice-litwak/b7/2b6/56" class="aboutText" target="_blank">Ellice Litwak</a> and <a href="http://www.vanessajoho.com" class="aboutText" target="_blank">Vanessa Joho</a>. It was updated and relaunched in 2015 by <a href="http://trixiefilms.com" class="aboutText" target="_blank">Therese Shechter</a> and <a href="http://rouxpz.com" class="aboutText" target="_blank">Roopa Vasudevan</a>.</p>
         </div>
 
         <div id="submitWindow" class="white_content">
-            <h2 id="thanks">Thanks for sharing your story!</h2><br>
+            <h2 class="boxtitle">Thanks for sharing your story!</h2><br>
             <p>You'll get an email when your submission has been posted. We'll contact you soon if there are any questions.</p>
         </div>
 
@@ -194,7 +194,7 @@
     <script>
         document.getElementById("about").onclick = function() {
             document.getElementById('aboutWindow').style.display='block';
-            document.getElementById('closeAbout').style.display='block';
+            document.getElementById('scrollbuttons').style.display='block';
             document.getElementById('fade').style.display='block';
             document.body.style.overflow='hidden';
         }
@@ -215,6 +215,7 @@
             var stateLong = [];
             var countryShort = [];
             var countryLong = [];
+
         </script>
 
         {% for choice in state_choices %}
