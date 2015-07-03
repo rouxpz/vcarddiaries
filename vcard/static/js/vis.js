@@ -252,6 +252,6 @@ function populateSocial(selection) {
 	var tumblrDescription = "A story from the V-Card Diaries: Tales of Sexual Debuts and Deferrals"
 	document.getElementById("facebook").href = "javascript:pop(\"https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fvcarddiaries.com/stories/" + selection[0] + "\")";
 	document.getElementById("twitter").href = "javascript:pop(\"https://twitter.com/intent/tweet?url=http://vcarddiaries.com/stories/" + selection[0] + "&text=" + titleText + "&via=VCardDiaries\")";
-	document.getElementById("tumblr").href = "javascript:pop(\"http://www.tumblr.com/share/link?url=http://vcarddiaries.com/stories/" + selection[0] + "&name=" + selection[3] + "&description=" + tumblrDescription + "\")";
+	document.getElementById("tumblr").href = "javascript:pop(\"http://www.tumblr.com/share/link?url=http://vcarddiaries.com/stories/" + selection[0] + "&name=" + titleText + "&description=" + tumblrDescription + "\")";
 	document.getElementById("reddit").href = "javascript:pop(\"http://reddit.com/submit?url=http://vcarddiaries.com/stories/" + selection[0] + "&title=" + selection[3] + "\")";
 };
