@@ -58,7 +58,7 @@ def submit(request):
 			post = '#VirginityIs ' + form.definition
 			api.PostUpdate(post)
 			# form.save()
-			send_mail('New V-Card Diaries Submission!', 'Hi Therese!\n\nYou have a new V-Card Diaries submission. Please log in to approve or reject it.\n\nFrom: ' + form.name + '\nSubmitted on: ' + str(form.date) + '\n\nThanks!', os.environ['EMAIL_ADDRESS'], os.environ['THERESE_EMAIL'], fail_silently=False)
+			send_mail('New V-Card Diaries Submission!', 'Hi Therese!\n\nYou have a new V-Card Diaries submission. Please log in to approve or reject it.\n\nFrom: ' + form.name + '\nSubmitted on: ' + str(form.date) + '\n\nThanks!', os.environ['EMAIL_ADDRESS'], [os.environ['THERESE_EMAIL']], fail_silently=False)
 			return HttpResponseRedirect('/stories/')
 
 		else:
