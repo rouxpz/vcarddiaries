@@ -350,9 +350,9 @@ class Story(models.Model):
 	sex_tags = models.ManyToManyField(Tag, related_name="sexuality", blank = True)
 	theme_tags = models.ManyToManyField(Tag, related_name="themes", blank = True)
 	experience_tags = models.ManyToManyField(Tag, related_name="experiences", blank=True)
-	city = models.CharField(max_length=30, default="")
-	state = models.CharField(max_length=2, choices=STATE_CHOICES, default="")
-	country = models.CharField(max_length=2, choices=COUNTRY_CHOICES, default="")
+	city = models.CharField(max_length=30, default="", null = True, blank = True)
+	state = models.CharField(max_length=2, choices=STATE_CHOICES, default="", null = True, blank = True)
+	country = models.CharField(max_length=2, choices=COUNTRY_CHOICES, default="", null = True, blank = True)
 	definition = models.TextField(max_length=130) # of virginity
 	text = models.TextField()
 

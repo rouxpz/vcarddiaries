@@ -5,9 +5,9 @@ from django.forms import Textarea
 
 class StoryForm(forms.ModelForm):
 
-	demo_tags = forms.ModelMultipleChoiceField(queryset=Tag.objects.filter(tagtype="Demographic"), widget=forms.CheckboxSelectMultiple, label="tell us about yourself. it will help others find stories from people who share their experiences.")
-	sex_tags = forms.ModelMultipleChoiceField(queryset=Tag.objects.filter(tagtype="Sexuality"), widget=forms.CheckboxSelectMultiple)
-	theme_tags = forms.ModelMultipleChoiceField(queryset=Tag.objects.filter(tagtype="Theme"), widget=forms.CheckboxSelectMultiple, label="pick the most important themes in your story.")
+	demo_tags = forms.ModelMultipleChoiceField(queryset=Tag.objects.filter(tagtype="Demographic"), required = False, widget=forms.CheckboxSelectMultiple, label="tell us about yourself. it will help others find stories from people who share their experiences.")
+	sex_tags = forms.ModelMultipleChoiceField(queryset=Tag.objects.filter(tagtype="Sexuality"), required = False, widget=forms.CheckboxSelectMultiple)
+	theme_tags = forms.ModelMultipleChoiceField(queryset=Tag.objects.filter(tagtype="Theme"), required = False, widget=forms.CheckboxSelectMultiple, label="pick the most important themes in your story.")
 
 	class Meta:
 		model = Story
