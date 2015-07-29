@@ -4,6 +4,7 @@ var city, state, country;
 function startForce() {
 	var width = 1000;
 	var height = 500;
+	var r = width/150;
 
 	var nodes = [];
 	var links = [];
@@ -39,7 +40,7 @@ function startForce() {
 	    .data(nodes)
 	    .enter().append('circle')
 	    .attr('class', 'node')
-	    .attr('r', width/150)
+	    .attr('r', r)
     	.attr('id', function(d, i) { return "id" + nodes[i].id; });
 
     d3.selectAll(".tag, #searchButton").on("click", function() {
@@ -90,8 +91,8 @@ function startForce() {
 		    .attr("y1", function(d) { return d.source.y; })
 		    .attr("x2", function(d) { return d.target.x; })
 		    .attr("y2", function(d) { return d.target.y; });
-    	node.attr("cx", function(d) { return d.x; })
-     		.attr("cy", function(d) { return d.y; });
+    	node.attr("cx", function(d) { return d.x = Math.max(r, Math.min(width - r, d.x)); })
+     		.attr("cy", function(d) { return d.y = Math.max(r, Math.min(height - r, d.y)); });
     });
 
 	d3.selectAll("circle").on("mouseover", function(d, i) {
