@@ -206,7 +206,12 @@ h3 {
     list-style-type: none;
 }
 
-li, ul {
+ol {
+    list-style-type: circle !important;
+    line-height: 70%;
+}
+
+ul {
 	margin-top: 0;
 	padding-left:0px;
 	list-style-type: none;

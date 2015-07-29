@@ -15,6 +15,15 @@
 		<h1>share your story</h1><div class="grey-btn" id="home"><a href="/stories/" id="home-button">read stories</a></div>
 		</div>
 		<div class="content">
+			{% if form.errors %}
+				<strong>Errors found:</strong><br>
+				{% for e in form.errors %}
+				<ol id="listed">
+					<li><strong>The field "{{e}}" is required.</strong></li>
+				</ol>
+				{% endfor %}
+			{% endif %}
+			<br>
 			<em>Contribute your story to the <strong>V-Card Diaries</strong> here! Starred fields are mandatory, but more information will help others find your story more easily.</em><br><br>
 		<form id="story_form" method="post" action="">
 			{% csrf_token %}
