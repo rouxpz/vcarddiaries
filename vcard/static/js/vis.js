@@ -15,6 +15,8 @@ function startForce() {
 		})
 	}
 
+	console.log("nodes loaded");
+
 	var svg = d3.selectAll("div.container").append('svg')
 		.attr('width', width)
 		.attr('height', height)
