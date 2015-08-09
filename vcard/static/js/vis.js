@@ -15,8 +15,6 @@ function startForce() {
 		})
 	}
 
-	document.getElementById("loadingScreen").style.display = "none";
-
 	var svg = d3.selectAll("div.container").append('svg')
 		.attr('width', width)
 		.attr('height', height)

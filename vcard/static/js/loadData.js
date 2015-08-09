@@ -20,6 +20,8 @@ function loadJSON(url, callback) {
             var myArr = JSON.parse(json.responseText);
             for (var i = 0; i < myArr.length; i++) {
 
+                console.log(myArr.length);
+
                 ids[ids.length] = myArr[i].pk;
                 storytexts[storytexts.length] = myArr[i].fields.text;
                 names[names.length] = myArr[i].fields.name;
@@ -61,6 +63,7 @@ function loadJSON(url, callback) {
             }
             if (typeof callback == "function") {
                 callback.apply(json);
+                document.getElementById("loadingScreen").style.display = "none";
       }
         }
     }

@@ -193,6 +193,11 @@ h3 {
     z-index:1001;
     -moz-opacity: 0.8;
     opacity:.80;
+    text-align: center;
+}
+
+#load {
+    line-height: 500px;
 }
 
 #tags {
