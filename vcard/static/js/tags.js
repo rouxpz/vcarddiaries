@@ -30,6 +30,8 @@ document.getElementById("searchButton").onclick = function() {
 
     for (var i = 0; i < storytexts.length; i++) {
         var lowerstory = storytexts[i].toLowerCase();
+        lowerstory += " " + titles[i].toLowerCase();
+        lowerstory += " " + names[i];
         if (lowerstory.indexOf(inputText) > -1) {
             highlightCircle(ids[i]);
             toLink[toLink.length] = 'id' + ids[i];

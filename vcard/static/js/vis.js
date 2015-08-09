@@ -21,7 +21,8 @@ function startForce() {
 		.attr('id', 'canvas');
 
 	var force = d3.layout.force()
-		.charge(-30)
+		.charge(-20)
+		.gravity(.05);
         .linkDistance(20)
 	    .size([width, height])
 	    .nodes(nodes)
