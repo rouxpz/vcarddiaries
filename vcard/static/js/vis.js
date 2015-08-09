@@ -22,7 +22,7 @@ function startForce() {
 
 	var force = d3.layout.force()
 		.charge(-20)
-		.gravity(.05);
+		.gravity(.05)
         .linkDistance(20)
 	    .size([width, height])
 	    .nodes(nodes)
