@@ -182,6 +182,19 @@ h3 {
 
 }
 
+#loadingScreen {
+    display: block;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index:1001;
+    -moz-opacity: 0.8;
+    opacity:.80;
+}
+
 #tags {
 	-webkit-column-count: 4; /* Chrome, Safari, Opera */
     -moz-column-count: 4; /* Firefox */

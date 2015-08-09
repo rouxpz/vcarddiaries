@@ -13,7 +13,6 @@ var allTagsText = [];
 var url = "/stories/api_search";
 
 function loadJSON(url, callback) {
-    console.log("loading data");
     var json = new XMLHttpRequest();
 
     json.onreadystatechange = function() {
@@ -68,7 +67,6 @@ function loadJSON(url, callback) {
 
     json.open("GET", url, true);
     json.send();
-    console.log("Data loaded");
 };
 
 loadJSON(url, startForce);
