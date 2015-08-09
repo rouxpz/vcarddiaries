@@ -18,9 +18,9 @@ function loadJSON(url, callback) {
     json.onreadystatechange = function() {
         if (json.readyState == 4 && json.status == 200) {
             var myArr = JSON.parse(json.responseText);
-            for (var i = 0; i < myArr.length; i++) {
 
-                console.log(myArr.length);
+            console.log(myArr.length);
+            for (var i = 0; i < myArr.length; i++) {
 
                 ids[ids.length] = myArr[i].pk;
                 storytexts[storytexts.length] = myArr[i].fields.text;
