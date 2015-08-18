@@ -44,7 +44,7 @@ function startForce() {
 	    .attr('r', r)
     	.attr('id', function(d, i) { return "id" + nodes[i].id; });
 
-    d3.selectAll(".tag, #searchButton").on("click", function() {
+    d3.selectAll(".tag, #searchButton, #selected-tags").on("click", function() {
     	link.remove();
 		links = [];
 		force.links(links);
