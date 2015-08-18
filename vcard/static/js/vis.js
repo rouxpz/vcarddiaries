@@ -3,7 +3,7 @@ var city, state, country;
 
 function startForce() {
 	var width = 1000;
-	var height = 500;
+	var height = 475;
 	var r = width/150;
 
 	var nodes = [];
@@ -21,9 +21,9 @@ function startForce() {
 		.attr('id', 'canvas');
 
 	var force = d3.layout.force()
-		.charge(-20)
+		.charge(-15)
 		.gravity(.05)
-        .linkDistance(20)
+        .linkDistance(25)
 	    .size([width, height-40])
 	    .nodes(nodes)
 	    .links(links)
