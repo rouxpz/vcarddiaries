@@ -301,6 +301,24 @@ ul {
     color:#cd1d38;
 }
 
+.clearButton {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: 'FrankGotMed';
+  color: #595959;
+  font-size: 11px;
+  background: #ffffff;
+  padding: 0px 2px 0px 2px;
+  border: solid #cd1d37 1px;
+  text-decoration: none;
+}
+
+.clearButton:hover {
+  background: #d6d6d6;
+  text-decoration: none;
+}
+
 #submit, #home, #film {
     display:inline-block;
     margin-right:10px;

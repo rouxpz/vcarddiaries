@@ -24,7 +24,7 @@ function startForce() {
 		.charge(-20)
 		.gravity(.05)
         .linkDistance(20)
-	    .size([width, height])
+	    .size([width, height-40])
 	    .nodes(nodes)
 	    .links(links)
 	    .start();
