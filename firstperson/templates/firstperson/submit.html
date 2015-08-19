@@ -31,7 +31,8 @@
 			<strong>* {{form.name.label}}</strong>  
 			{{form.name}}<br>
 			<br>
-			<strong>tell us about yourself.</strong>
+			<strong>tell us about yourself.</strong><br>
+			<em>this is so we can tag your story so others can find it.</em>
 
 			<div id="tags">{{form.demo_tags}}<br>{{form.sex_tags}}</div>
 			<br>
@@ -43,11 +44,13 @@
 			{{ form.age }}</div>
 			<br>
 			<strong>* {{ form.definition.label }}</strong><br>
+			<em>this will be tweeted anonymously at @vcarddiaries.</em><br>
 			{{ form.definition }}
 			<br>
 			<br>
 		
 			<strong>* {{ form.text.label }}</strong><br>
+			<em>this is the text that will appear on the site, so please include a bit about yourself, your thoughts about the concept of virginity, and the story you'd like to share.</em><br>
 			{{ form.text }}{% wysiwyg_editor "storytext" %}<br><br>
 			<strong>{{ form.theme_tags.label }}</strong><br>
 				<div id="tags">{{form.theme_tags }}</div><br>
