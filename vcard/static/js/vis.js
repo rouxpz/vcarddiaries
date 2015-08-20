@@ -24,9 +24,9 @@ function startForce() {
 		.charge(function(node) {
 			return node.graph === 0 ? -30 : -50;
 		})
-		.gravity(0.2)
+		.gravity(0.3)
         .linkDistance(30)
-	    .size([width, height-40])
+	    .size([width, height])
 	    .nodes(nodes)
 	    .links(links)
 	    .start();

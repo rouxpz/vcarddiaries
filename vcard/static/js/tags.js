@@ -1,4 +1,5 @@
 var allIDs = [];
+var tagTextIDs = [];
 
 function tagFilter(tagID) {
     var t = document.getElementById(tagID);
@@ -10,9 +11,11 @@ function tagFilter(tagID) {
         if (tagID.indexOf('tag') != -1) {
             var split = tagID.split("g");
             allTags[allTags.length] = split[1];
+            tagTextIDs[tagTextIDs.length] = "tagTexts" + split[1];
             // allIDs[allIDs.length] = split[1];
         } else {
             allAges[allAges.length] = tagID;
+            tagTextIDs[tagTextIDs.length] = "tagTexts" + tagID;
             // allIDs[allIDs.length] = tagID;
             // allTags[allTags.length] = tagID;
         }
@@ -21,28 +24,11 @@ function tagFilter(tagID) {
         allTagsText[allTagsText.length] = t.text;
         selectEntries(allTags, allAges);
 
-        console.log(allIDs);
-        console.log(allTagsText);
-
         var selectedTagText = "<strong>selected:</strong><br>";
 
         for (var i = 0; i < allTagsText.length; i++) {
-            var tagTextID;
 
-            for (var j = 0; j < allTags.length; j++) {
-                if (tagID.indexOf('tag') != -1) {
-                    tagTextID = "tagTexts" + allTags[j];
-                } 
-
-            }
-
-            for (var j = 0; j < allAges.length; j++) {
-                if (tagID.indexOf('tag') == -1) {
-                    tagTextID = "ageTexts" + allAges[j];
-                }
-            }
-
-            selectedTagText += allTagsText[i].toLowerCase() + "  <a href=\"javascript:void(0)\" id = \"" + tagTextID + "\" class=\"clearButton\" onclick=\"clearTag('" + tagTextID + "', '" + allIDs[i] + "');\">X</a><br>";
+            selectedTagText += allTagsText[i].toLowerCase() + "  <a href=\"javascript:void(0)\" id = \"" + tagTextIDs[i] + "\" class=\"clearButton\" onclick=\"clearTag('" + tagTextIDs[i] + "', '" + allIDs[i] + "')\" onmouseover=\"console.log('" + tagTextIDs[i] + "');\";\">X</a><br>";
         }
 
         document.getElementById("selected-tags").innerHTML = selectedTagText;
@@ -50,35 +36,26 @@ function tagFilter(tagID) {
 };
 
 function clearTag(tagTextID, tagText) {
-    console.log("beginning: " + allIDs);
-    console.log("beginning" + allTagsText);
-    // console.log(tagTextID);
+
     var split = tagTextID.split("s");
     var tagID = split[1];
-    console.log("id to remove: " + tagTextID + ", " + tagID);
-    console.log("text length: " + allTagsText.length);
-    console.log("ids length: " + allIDs.length);
-
-    console.log("place in text array: " + allTagsText.indexOf(allTagsText[allIDs.indexOf(tagText)]));
-    console.log("place in all IDs array: " + allIDs.indexOf('tag' + tagID));
 
     var index = allTags.indexOf(tagID);
     var indexAge = allAges.indexOf(tagID);
-    var indexText = allTagsText.indexOf(tagText);
-
-    console.log("index in tags: " + index);
-    console.log("index in ages: " + indexAge);
+    var indexText = allIDs.indexOf(tagText);
 
     if (index > -1) {
         console.log("tag found");
         allTags.splice(index, 1);
         allTagsText.splice(indexText, 1);
         allIDs.splice(indexText, 1);
+        tagTextIDs.splice(indexText, 1);
     } else if (indexAge > -1) {
         console.log("age found");
         allAges.splice(indexAge, 1);
         allTagsText.splice(indexText, 1);
         allIDs.splice(indexText, 1);
+        tagTextIDs.splice(indexText, 1);
     }
 
     console.log("new id list: " + allIDs);
@@ -94,17 +71,8 @@ function clearTag(tagTextID, tagText) {
 
         var selectedTagText = "<strong>selected:</strong><br>";
 
-        for (var i = 0; i < allIDs.length; i++) {
-            var newTagTextID;
-
-            if (allIDs[i].indexOf('tag') != -1) {
-                newTagTextID = "tagTexts" + allIDs[i].split('g')[1];
-                console.log(newTagTextID);
-            } else {
-                newTagTextID = "ageTexts" + allIDs[i];
-                console.log(newTagTextID);
-            }
-            selectedTagText += allTagsText[i].toLowerCase() + "  <a href=\"javascript:void(0)\" class=\"clearButton\" id=\"" + newTagTextID + "\" onclick=\"clearTag('" + newTagTextID + "', '" + allIDs[i] + "');\" onmouseover=\"console.log(this.id)\">X</a><br>";
+            for (var i = 0; i < allTagsText.length; i++) {
+                selectedTagText += allTagsText[i].toLowerCase() + "  <a href=\"javascript:void(0)\" id = \"" + tagTextIDs[i] + "\" class=\"clearButton\" onclick=\"clearTag('" + tagTextIDs[i] + "', '" + allIDs[i] + "')\" onmouseover=\"console.log('" + tagTextIDs[i] + "');\";\">X</a><br>";
         }
 
         document.getElementById("selected-tags").innerHTML = selectedTagText;
