@@ -50,10 +50,6 @@ function loadJSON(url, callback) {
                     tag_list[tag_list.length] = raw_theme_tags[j];
                 }
 
-                for (var j = 0; j < raw_exp_tags.length; j++) {
-                    tag_list[tag_list.length] = raw_exp_tags[j];
-                }
-
                 ages[ages.length] = myArr[i].fields.age;
                 tags[tags.length] = tag_list;
 
