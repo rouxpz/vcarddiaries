@@ -21,9 +21,11 @@ function startForce() {
 		.attr('id', 'canvas');
 
 	var force = d3.layout.force()
-		.charge(-15)
-		.gravity(.05)
-        .linkDistance(25)
+		.charge(function(node) {
+			return node.graph === 0 ? -30 : -50;
+		})
+		.gravity(0.2)
+        .linkDistance(30)
 	    .size([width, height-40])
 	    .nodes(nodes)
 	    .links(links)
@@ -67,7 +69,12 @@ function startForce() {
 		}
 
 		for (var i = 0; i < tempNodes.length; i++) {
-			links.push({source: tempNodes[i], target: tempNodes[Math.floor(Math.random() * tempNodes.length)]});
+			if (i < tempNodes.length-1) {
+				links.push({source: tempNodes[i], target: tempNodes[i+1]});
+				links.push({source: tempNodes[i], target: tempNodes[Math.floor(Math.random() * tempNodes.length)]});
+			} else {
+				links.push({source: tempNodes[tempNodes.length-1], target: tempNodes[0]});
+			}
 		};
 
         link = svg.select(".links").selectAll('.link')
