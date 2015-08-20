@@ -16,10 +16,10 @@
 		</div>
 		<div class="content">
 			{% if form.errors %}
-				<strong>Errors found:</strong><br>
+				<strong class="errors">Errors found:</strong><br>
 				{% for e in form.errors %}
 				<ol id="listed">
-					<li><strong>The field "{{e}}" is required.</strong></li>
+					<li><strong class="errors">The field "{{e}}" is required.</strong></li>
 				</ol>
 				{% endfor %}
 			{% endif %}

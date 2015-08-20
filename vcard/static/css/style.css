@@ -183,6 +183,10 @@ h3 {
 
 }
 
+.errors {
+    color:#3DB8C7 !important;
+}
+
 #loadingScreen {
     display: block;
     position: fixed;
