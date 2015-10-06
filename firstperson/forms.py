@@ -11,15 +11,17 @@ class StoryForm(forms.ModelForm):
 
 	class Meta:
 		model = Story
-		fields = ('name', 'demo_tags', 'sex_tags', 'age', 'city', 'state', 'country', 'definition', 'text', 'theme_tags', 'email')
+		fields = ('name', 'demo_tags', 'sex_tags', 'age', 'city', 'state', 'country', 'definition', 'text', 'theme_tags', 'email', 'address')
 		labels = {
 			'name' : _("name (any name you want, but please don't use \"anonymous\")"),
 			'email' : _('email address (we promise we will never share this with anyone)'),
 			'age' : _('age range (select one)'),
 			'definition' : _("what is your definition of virginity? (130 character maximum)"),
 			'text' : _('tell us your story (500 words max):'),
+			'address' : _('mailing address to get your 2 free v-cards: '),
 		}
 		widgets = {
 			'definition' : Textarea(attrs={'cols': 70, 'rows': 5}),
 			'text' : Textarea(attrs={'cols': 100, 'rows': 20, 'id': 'storytext'}),
+			'address' : Textarea(attrs={'cols': 70, 'rows': 3}),
 		}

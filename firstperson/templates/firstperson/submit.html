@@ -30,7 +30,8 @@
 				{% endfor %}
 			{% endif %}
 			<br>
-			<em>Contribute your story to the <strong>V-Card Diaries</strong> here! Starred fields are mandatory, but more information will help others find your story more easily.</em><br><br>
+			<em>Contribute your story to the <strong>V-Card Diaries</strong> here! Starred fields are mandatory, but more information will help others find your story more easily.</em><br>
+			We'll send you 2 free <a href="http://www.virginitymovie.com/buy-stuff/reusable-v-cards">Reusable V-Cards</a> if you include your mailing address at the bottom of the form.<br><br>
 		<form id="story_form" method="post" action="">
 			{% csrf_token %}
 
@@ -61,6 +62,8 @@
 			<strong>{{ form.theme_tags.label }}</strong><br>
 				<div id="tags">{{form.theme_tags }}</div><br>
 			<strong>* {{ form.email.label }}</strong>  {{form.email}}<br>
+			<br>
+			<strong>{{ form.address.label }}</strong><br>  {{form.address}}<br>
 			<br>
 			<div class="fineprint"><strong>the fine print:</strong> Thanks so much for sharing your story with V-Card Diaries! By hitting "submit" you grant Trixie Films non-exclusive rights to publish your story in conjunction with the project "How To Lose Your Virginity." You also understand that if we publish your story, we may edit it for length or clarity.</div>
 			<br/>

@@ -354,9 +354,10 @@ class Story(models.Model):
 	country = models.CharField(max_length=2, choices=COUNTRY_CHOICES, default="", null = True, blank = True)
 	definition = models.TextField(max_length=130) # of virginity
 	text = models.TextField()
+	address = models.TextField(default="", null = True, blank = True)
 
 	def __unicode__(self):
-		return self.title
+		return self.email
 
 	class Meta:
 		verbose_name_plural = 'Stories'
