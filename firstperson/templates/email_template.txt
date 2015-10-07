@@ -1,0 +1,11 @@
+Hello!
+
+Your V-Card Diaries submission has been {% ifequal moderated_object.moderation_status 0 %}rejected.{% endifequal %}{% ifequal moderated_object.moderation_status 1 %}accepted! You can go to http://vcarddiaries.com/stories and enter your name in the search box to find it.{% endifequal %}
+{% if moderated_object.moderation_reason %}{% ifequal moderated_object.moderation_status 0 %}The entry was rejected because {{ moderated_object.moderation_reason }}. You can re-submit if you'd like, but please keep our guidelines in mind.{% endifequal %}{% endif %}
+{% ifequal moderated_object.moderation_status 0 %}Thank you.{% endifequal %}{% ifequal moderated_object.moderation_status 1 %}Thanks for sharing your experience with us!{% endifequal %}
+
+
+----------
+
+This is an automated email from The V-Card Diaries. Please do not reply.
+

@@ -1,5 +1,4 @@
 from django.db import models
-from moderation import moderation
 from datetime import datetime
 
 # Create your models here.
@@ -361,7 +360,3 @@ class Story(models.Model):
 
 	class Meta:
 		verbose_name_plural = 'Stories'
-
-moderation.register(Definition)
-moderation.register(Story)
-moderation.register(Tag)
