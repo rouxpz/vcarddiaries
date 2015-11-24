@@ -280,11 +280,16 @@ ul {
     visibility: hidden;
 }
 
-#close, #close2 {
+#close {
     float:right;
     display:inline-block;
     margin-right: -7% !important;
     margin-top:-1%;
+}
+
+#close2 {
+    float:right;
+    display:inline-block;
 }
 
 .smallItalics {
