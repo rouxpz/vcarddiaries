@@ -20,10 +20,11 @@
 
 		{% for s in state_choices %}
 			{% for c in country_choices %}
-				{% if story.state == s.0 and s.0 != "N/A" %}
+				{% if story.state == s.0 and s.0 != "EM" %}
 					{% if story.country == c.0 %}
+						{% if story.city != "N/A" %}
 						<p><strong>Location:</strong> {{story.city}} {{s.1}} {{c.1}}</p><br>
-					{% endif %}{% endif %}
+					{% endif %}{% endif %}{% endif %}
 				{% endfor %}
 		{% endfor %}
 
