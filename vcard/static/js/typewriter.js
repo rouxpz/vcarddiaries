@@ -3,8 +3,8 @@ var interval = 3000;
 
 $(document).ready(function(){    
     function type_text(texts) {
-        var textIndex = parseInt(Math.random() * texts.length);
-        $('#typewriter').text(texts[textIndex]).show("slide", {'direction' : 'right'},300);
+        // var textIndex = parseInt(Math.random() * texts.length);
+        // $('#typewriter').text(texts[textIndex]).show("slide", {'direction' : 'right'},300);
         setInterval(function() {
             console.log(Date.now() - startingTime);
             if (Date.now() - startingTime >= interval) {
@@ -15,7 +15,7 @@ $(document).ready(function(){
                     startingTime = Date.now();
                 });
             }
-        }, 100);
+        }, 800);
 
     }
 
