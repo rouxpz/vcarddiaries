@@ -38,6 +38,7 @@
 		<script>
 			var ds = '{{story.text}}';
 			ds = ds.replace('<', '&lt;').replace('>', '&gt;');
+			ds = ds.split('\n').join('<br/>');
 			document.getElementById("detailstory").innerHTML = ds;
 		</script>
 	</div>
