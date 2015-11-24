@@ -27,10 +27,18 @@
 				{% endfor %}
 		{% endfor %}
 
-		<pre>{{story.text}}</pre>
+		<pre>
+			<div id="detailstory"></div>
+		</pre>
 
 		{% endif %}
 		<br><br>
 		<em>Read more tales of sexual debuts and deferrals at <a href="http://vcarddiaries.com" class="detailText">The V-Card Diaries</a></em>
+
+		<script>
+			var ds = '{{story.text}}';
+			ds = ds.replace('<', '&lt;').replace('>', '&gt;');
+			document.getElementById("detailstory").innerHTML = ds;
+		</script>
 	</div>
 </body>
