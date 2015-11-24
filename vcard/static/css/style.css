@@ -290,6 +290,8 @@ ul {
 #close2 {
     float:right;
     display:inline-block;
+    margin-right: 2% !important;
+    margin-top:-1%;
 }
 
 .smallItalics {
