@@ -28,12 +28,12 @@
 		{% endfor %}
 
 		<p id="detailstory"></p>
+		<script>
+			document.getElementById("detailstory").innerHTML = '{{story.text}}';
+		</script>
 
 		{% endif %}
 		<br><br>
 		<em>Read more tales of sexual debuts and deferrals at <a href="http://vcarddiaries.com" class="detailText">The V-Card Diaries</a></em>
 	</div>
-	<script>
-		document.getElementById("detailstory").innerHTML = '{{story.text}}';
-	</script>
 </body>
