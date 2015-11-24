@@ -108,13 +108,26 @@
             document.getElementById('closeAbout').style.display='block';
             document.getElementById('fade2').style.display='block';
             document.body.style.overflow='hidden';
-        }
+        };
 
         document.getElementById("close2").onclick = function() {
 		    document.getElementById('aboutWindowSubmit').style.display='none';
 		    document.getElementById('closeAbout').style.display='none';
 		    document.getElementById('fade2').style.display='none';
 		    document.body.style.overflow='auto';
+		};
+
+		window.document.onkeydown = function(e) {
+
+		    if (!e) e = event;
+		    if (e.keyCode == 27) {
+
+		        document.getElementById('aboutWindowSubmit').style.display='none';
+			    document.getElementById('closeAbout').style.display='none';
+			    document.getElementById('fade2').style.display='none';
+			    document.body.style.overflow='auto';
+
+		    }
 		};
     </script>
 

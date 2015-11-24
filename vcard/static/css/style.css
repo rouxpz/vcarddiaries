@@ -261,7 +261,7 @@ ul {
     overflow: hidden;
 }
 
-#close, #next, strong {
+#close, #next, #close2, strong {
     color:#cd1d38;
     text-decoration: none;
 }
