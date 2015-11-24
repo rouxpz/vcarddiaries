@@ -19,18 +19,21 @@
 		{% endfor %}
 
 		<p><strong>Location:</strong>
+			
+		{% if story.city != "N/A" and story.city != "" %}
+			{{story.city}},
+		{% endif %}
+				
 		{% for s in state_choices %}
-			{% for c in country_choices %}
-				{% if story.city != "N/A" and story.city != "" %}
-					{{story.city}},
-				{% endif %}
-				{% if story.state == s.0 and s.0 != "EM" %}
-					{{s.1}},
-				{% endif %}
-				{% if story.country == c.0 %}
-					{{c.1}}
-				{% endif %}
-			{% endfor %}
+			{% if story.state == s.0 and s.0 != "EM" %}
+				{{s.1}},
+			{% endif %}
+		{% endfor %}
+
+		{% for c in country_choices %}
+			{% if story.country == c.0 %}
+				{{c.1}}
+			{% endif %}
 		{% endfor %}
 		</p><br>
 
