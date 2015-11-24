@@ -88,7 +88,8 @@
         <br><br><br>
         <em style="color:black;" class="smallItalics">How To Lose Your Virginity and The V-Card Diaries ©2015 Trixie Films LLC</em>
     </footer>
-    <script src="{% static "js/storyWindow.js" %}"></script>
+
+<!--     // <script src="{% static "js/storyWindow.js" %}"></script> -->
     <script>
         document.getElementById("about2").onclick = function() {
             document.getElementById('aboutWindowSubmit').style.display='block';
@@ -96,6 +97,13 @@
             document.getElementById('fade2').style.display='block';
             document.body.style.overflow='hidden';
         }
+
+        document.getElementById("close2").onclick = function() {
+		    document.getElementById('aboutWindowSubmit').style.display='none';
+		    document.getElementById('closeAbout').style.display='none';
+		    document.getElementById('fade2').style.display='none';
+		    document.body.style.overflow='auto';
+		};
     </script>
 
     <div id="aboutWindowSubmit" class="white_content">
