@@ -66,8 +66,12 @@ window.document.onkeydown = function(e) {
 
 };
 
-document.getElementById("about", "about2").onclick = function() {
+document.getElementById("about").onclick = function() {
     openWindow('aboutWindow');
+}
+
+document.getElementById("about2").onclick = function() {
+    openWindow('aboutWindowSubmit');
 }
 
 var newwindow;

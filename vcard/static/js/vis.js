@@ -129,13 +129,13 @@ function startForce() {
 
                 for (var i = 0; i < ids.length; i++) {
                     if (document.getElementById('id' + ids[i]).style.fill != "") {
-                        selectedStories[selectedStories.length] = [ids[i], storytexts[i], names[i], titles[i], places[i]];
+                        selectedStories[selectedStories.length] = [ids[i], storytexts[i], names[i], titles[i], places[i], ages[i], definitions[i]];
                     }
                 }
 
             } else {
                 for (var i = 0; i < ids.length; i++) {
-                    selectedStories[selectedStories.length] = [ids[i], storytexts[i], names[i], titles[i], places[i]];
+                    selectedStories[selectedStories.length] = [ids[i], storytexts[i], names[i], titles[i], places[i], ages[i], definitions[i]];
                 }
             }
 
@@ -221,15 +221,15 @@ function openWindow(windowID) {
 
 function populateStoryWindow(selection, totalStories) {
 
-	if (selectedStories[currentStory - 1][4][0] == "N/A") {
-        city = '';
+	if (selectedStories[currentStory - 1][4][0] == "N/A" || selectedStories[currentStory - 1][4][0] == "") {
+        city = "";
     } else {
         city = selectedStories[currentStory - 1][4][0] + ", ";
     }
 
     for (var j = 0; j < stateShort.length; j++) {
         if (j == 1) {
-            state = '';
+            state = "";
         } else {
             if (selectedStories[currentStory - 1][4][1] == stateShort[j]) {
                 state = stateLong[j] + ", ";
@@ -238,8 +238,8 @@ function populateStoryWindow(selection, totalStories) {
     }
 
     for (var j = 0; j < countryShort.length; j++) {
-        if (selectedStories[currentStory - 1][4][2] == 'US') {
-            country = 'USA';
+        if (selectedStories[currentStory - 1][4][2] == "US") {
+            country = "USA";
         } else {
             if (selectedStories[currentStory - 1][4][2] == countryShort[j]) {
                 country = countryLong[j];
@@ -252,6 +252,8 @@ function populateStoryWindow(selection, totalStories) {
     document.getElementById("name").innerHTML = "By " + selection[2];
     document.getElementById("place").innerHTML = city + state + country;
     document.getElementById("count").innerHTML = "Story " + currentStory + " of " + totalStories.length;
+    document.getElementById("ageRange").innerHTML = "Age Range: " + selection[5];
+    document.getElementById("definition").innerHTML = "<strong>My definition of virginity: </strong>" + selection[6];
 
 };
 

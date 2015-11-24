@@ -38,11 +38,11 @@
 			<strong>* {{form.name.label}}</strong>  
 			{{form.name}}<br>
 			<br>
-			<strong>tell us about yourself.</strong><br>
-			<em>this is so we can tag your story so others can find it.</em>
+<!-- 			<strong>tell us about yourself.</strong><br>
+			<em>this is so we can tag your story so others can find it.</em> -->
 
-			<div id="tags">{{form.demo_tags}}<br>{{form.sex_tags}}</div>
-			<br>
+<!-- 			<div id="tags">{{form.demo_tags}}<br>{{form.sex_tags}}</div>
+			<br> -->
 			<div id="demographics"><strong>where are you from?</strong><br>
 			city  {{form.city}} {{form.state}} {{form.country}}
 			<br>
@@ -60,12 +60,12 @@
 			<em>this is the text that will appear on the site, so please include a bit about yourself, your thoughts about the concept of virginity, and the story you'd like to share.</em><br>
 			{{ form.text }}{% wysiwyg_editor "storytext" %}<br><br>
 			<strong>{{ form.theme_tags.label }}</strong><br>
-				<div id="tags">{{form.theme_tags }}</div><br>
+<!-- 				<div id="tags">{{form.theme_tags }}</div><br> -->
 			<strong>* {{ form.email.label }}</strong>  {{form.email}}<br>
 			<br>
 			<strong>{{ form.address.label }}</strong><br>  {{form.address}}<br>
 			<br>
-			<div class="fineprint"><strong>the fine print:</strong> Thanks so much for sharing your story with V-Card Diaries! By hitting "submit" you grant Trixie Films non-exclusive rights to publish your story in conjunction with the project "How To Lose Your Virginity." You also understand that if we publish your story, we may edit it for length or clarity.</div>
+			<div class="fineprint"><strong>the fine print:</strong> Thanks so much for sharing your story with V-Card Diaries! By hitting the SUBMIT button, you grant Trixie Films non-exclusive rights to your submitted story. You understand that we may edit your story for length and clarity, and we're not obligated to publish it. We will always protect your anonymity, and never share your email information. Thank your for submitting!</div>
 			<br/>
 			<br/>
 			<input type="submit" id = "submitButton" name="submit" value="submit!" />
@@ -91,19 +91,20 @@
     <script src="{% static "js/storyWindow.js" %}"></script>
     <script>
         document.getElementById("about2").onclick = function() {
-            document.getElementById('aboutWindow').style.display='block';
+            document.getElementById('aboutWindowSubmit').style.display='block';
             document.getElementById('closeAbout').style.display='block';
             document.getElementById('fade').style.display='block';
             document.body.style.overflow='hidden';
         }
     </script>
 
-    <div id="aboutWindow" class="white_content">
+    <div id="aboutWindowSubmit" class="white_content">
             <h2 class="boxtitle">about the v-card diaries</h2><br>
             <p class="aboutText">The V-Card Diaries is a crowd-sourced interactive story-sharing site where everyone can access and share stories about their sexual lives in total anonymity. The site was inspired by the many stories we received from people who have seen our documentary <a href="http://virginitymovie.com/" class="aboutText" target="_blank">How To Lose Your Virginity</a> or follow <a href="http://virginitymovie.com/blog" class="aboutText" target="_blank">the blog</a>. Join us in telling this collective story about becoming sexual - and in the radical act of speaking honestly about it. Get more information about this project <a href="https://therese-shechter.squarespace.com/interactive/" class="aboutText" target="_blank">here</a> or <a href="https://therese-shechter.squarespace.com/contact" class="aboutText" target="_blank">contact Therese directly</a>.</p><br>
 
             <p class="aboutText">The site was initially developed in 2013 at the <a href="http://www.pbs.org/pov/blog/povdocs/2013/01/pov-hackathon-2-view-eight-web-storytelling-prototypes/9/POV Hackathon" class="aboutText" target="_blank">POV Hackathon</a> by <a href="http://trixiefilms.com" class="aboutText" target="_blank">Therese Shechter</a>, <a href="https://www.linkedin.com/in/smmelendez" class="aboutText" target="_blank">Steven Melendez</a>, <a href="https://www.linkedin.com/pub/ellice-litwak/b7/2b6/56" class="aboutText" target="_blank">Ellice Litwak</a> and <a href="http://www.vanessajoho.com" class="aboutText" target="_blank">Vanessa Joho</a>. It was updated and relaunched in 2015 by <a href="http://trixiefilms.com" class="aboutText" target="_blank">Therese Shechter</a> and <a href="http://rouxpz.com" class="aboutText" target="_blank">Roopa Vasudevan</a>.</p>
     </div>
+    <div id="fade" class="black_overlay"></div>
 
 	</body>
 </html>

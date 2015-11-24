@@ -16,7 +16,7 @@ $(document).ready(function(){
                     startingTime = Date.now();
                 });
             }
-        }, 1000);
+        }, 800);
 
     }
     $('#typewriter').hide();

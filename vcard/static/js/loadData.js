@@ -5,6 +5,7 @@ var titles = [];
 var places = [];
 var tags = [];
 var ages = [];
+var definitions = [];
 
 var allTags = [];
 var allAges = [];
@@ -26,6 +27,7 @@ function loadJSON(url, callback) {
                 storytexts[storytexts.length] = myArr[i].fields.text;
                 names[names.length] = myArr[i].fields.name;
                 titles[titles.length] = myArr[i].fields.title;
+                definitions[definitions.length] = myArr[i].fields.definition;
 
                 var storyPlace = [myArr[i].fields.city, myArr[i].fields.state, myArr[i].fields.country];
                 places[places.length] = storyPlace;
