@@ -27,7 +27,9 @@
 				{% endfor %}
 		{% endfor %}
 
-		<div id="detailstory"></div>
+		{% autoescape off %}
+			<div id="detailstory"></div>
+		{% endautoescape %}
 
 		{% endif %}
 		<br><br>
