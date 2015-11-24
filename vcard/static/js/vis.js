@@ -258,7 +258,7 @@ function populateStoryWindow(selection, totalStories) {
     document.getElementById("name").innerHTML = "By " + selection[2];
     document.getElementById("place").innerHTML = city + state + country;
     document.getElementById("count").innerHTML = "Story " + currentStory + " of " + totalStories.length;
-    document.getElementById("ageRange").innerHTML = "Age Range: " + age;
+    document.getElementById("ageRange").innerHTML = "<strong>Age Range:</strong> " + age;
     document.getElementById("definition").innerHTML = "<strong>My definition of virginity: </strong>" + selection[6];
 
 };
