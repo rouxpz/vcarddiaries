@@ -27,9 +27,7 @@
 				{% endfor %}
 		{% endfor %}
 
-		<pre>
-			<div id="detailstory"></div>
-		</pre>
+		<div id="detailstory"></div>
 
 		{% endif %}
 		<br><br>
@@ -38,6 +36,7 @@
 		<script>
 			var ds = '{{ story.text|linebreaks}}';
 			document.getElementById("detailstory").innerHTML = ds;
+			console.log(ds);
 		</script>
 	</div>
 </body>
