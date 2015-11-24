@@ -28,17 +28,13 @@
 		{% endfor %}
 
 		{% autoescape off %}
-			<div id="detailstory"></div>
+			{{story.text}}
+			<!-- <div id="detailstory"></div> -->
 		{% endautoescape %}
 
 		{% endif %}
 		<br><br>
 		<em>Read more tales of sexual debuts and deferrals at <a href="http://vcarddiaries.com" class="detailText">The V-Card Diaries</a></em>
 
-		<script>
-			var ds = '{{ story.text|linebreaks}}';
-			document.getElementById("detailstory").innerHTML = ds;
-			console.log(ds);
-		</script>
 	</div>
 </body>
