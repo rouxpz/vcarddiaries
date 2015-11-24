@@ -27,10 +27,7 @@
 				{% endfor %}
 		{% endfor %}
 
-		<p id="detailstory"></p>
-		<script>
-			document.getElementById("detailstory").innerHTML = '<pre>{{story.text}}</pre>';
-		</script>
+		<pre>{{story.text}}</pre>
 
 		{% endif %}
 		<br><br>
