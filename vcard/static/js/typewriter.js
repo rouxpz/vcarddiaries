@@ -1,10 +1,10 @@
-var interval = 3000;
 var startingTime;
 
 $(document).ready(function(){    
     function type_text(texts) {
-        startingTime = Date.now();
         var textIndex = parseInt(Math.random() * texts.length);
+        startingTime = Date.now();
+        var interval = 3000;
         $('#typewriter').text(texts[textIndex]).show("slide", {'direction' : 'right'},300);
         setInterval(function() {
             // console.log(Date.now() - startingTime);

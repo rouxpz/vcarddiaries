@@ -1,5 +1,5 @@
 var toLink = [];
-var city, state, country;
+var city, state, country, age;
 
 function startForce() {
 	var width = 1000;
@@ -247,12 +247,18 @@ function populateStoryWindow(selection, totalStories) {
         }
     }
 
+    for (var j = 0; j < ageShort.length; j++) {
+    	if (selectedStories[currentStory - 1][5] == ageShort[j]) {
+    		age = ageLong[j];
+    	}
+    }
+
 	document.getElementById("boxtitle").innerHTML = selection[3];
     document.getElementById("story").innerHTML = selection[1];
     document.getElementById("name").innerHTML = "By " + selection[2];
     document.getElementById("place").innerHTML = city + state + country;
     document.getElementById("count").innerHTML = "Story " + currentStory + " of " + totalStories.length;
-    document.getElementById("ageRange").innerHTML = "Age Range: " + selection[5];
+    document.getElementById("ageRange").innerHTML = "Age Range: " + age;
     document.getElementById("definition").innerHTML = "<strong>My definition of virginity: </strong>" + selection[6];
 
 };

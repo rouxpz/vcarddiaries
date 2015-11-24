@@ -49,7 +49,7 @@ document.getElementById("back").onclick = function() {
     populateSocial(selectedStories[currentStory-1]);
 }
 
-document.getElementById("close").onclick = function() {
+document.getElementById("close", "close2").onclick = function() {
 
     closeAndClear();
 

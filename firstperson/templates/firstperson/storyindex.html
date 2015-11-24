@@ -188,6 +188,8 @@
             var stateLong = [];
             var countryShort = [];
             var countryLong = [];
+            var ageShort = [];
+            var ageLong = [];
 
         </script>
 
@@ -203,6 +205,12 @@
                 countryShort[countryShort.length] = '{{choice.0}}' 
                 countryLong[countryLong.length] = '{{choice.1}}'
             </script>
+        {% endfor %}
+
+        {% for age in age_choices %}
+            <script>
+            ageShort[ageShort.length] = '{{age.0}}'
+            ageLong[ageLong.length] = '{{age.1}}'
         {% endfor %}
 
         <script src="{% static "js/storyWindow.js" %}"></script>
