@@ -36,7 +36,7 @@
 		<em>Read more tales of sexual debuts and deferrals at <a href="http://vcarddiaries.com" class="detailText">The V-Card Diaries</a></em>
 
 		<script>
-			var ds = '{{ story.text.split|join:"<br/>" }}';
+			var ds = '{{ story.text.split:"\n"|join:"<br/>" }}';
 			document.getElementById("detailstory").innerHTML = ds;
 		</script>
 	</div>
