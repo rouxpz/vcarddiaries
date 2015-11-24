@@ -195,22 +195,23 @@
 
         {% for choice in state_choices %}
             <script>
-                stateShort[stateShort.length] = '{{choice.0}}' 
-                stateLong[stateLong.length] = '{{choice.1}}'
+                stateShort[stateShort.length] = '{{choice.0}}'; 
+                stateLong[stateLong.length] = '{{choice.1}}';
             </script>
         {% endfor %}
 
         {% for choice in country_choices %}
             <script>
-                countryShort[countryShort.length] = '{{choice.0}}' 
-                countryLong[countryLong.length] = '{{choice.1}}'
+                countryShort[countryShort.length] = '{{choice.0}}'; 
+                countryLong[countryLong.length] = '{{choice.1}}';
             </script>
         {% endfor %}
 
         {% for age in age_choices %}
             <script>
-            ageShort[ageShort.length] = '{{age.0}}'
-            ageLong[ageLong.length] = '{{age.1}}'
+                ageShort[ageShort.length] = '{{age.0}}';
+                ageLong[ageLong.length] = '{{age.1}}';
+                console.log(ageShort);
             </script>
         {% endfor %}
 

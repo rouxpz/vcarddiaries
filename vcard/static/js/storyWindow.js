@@ -70,10 +70,6 @@ document.getElementById("about").onclick = function() {
     openWindow('aboutWindow');
 }
 
-document.getElementById("about2").onclick = function() {
-    openWindow('aboutWindowSubmit');
-}
-
 var newwindow;
 function pop(url)
 {
